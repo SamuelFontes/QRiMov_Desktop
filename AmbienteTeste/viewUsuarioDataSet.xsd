@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="viewUsuarioDataSet" targetNamespace="http://tempuri.org/viewUsuarioDataSet.xsd" xmlns:mstns="http://tempuri.org/viewUsuarioDataSet.xsd" xmlns="http://tempuri.org/viewUsuarioDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="qrimobConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="qrimobConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.AmbienteTeste.Properties.Settings.GlobalReference.Default.qrimobConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="view_usuariosTableAdapter" GeneratorDataComponentClassName="view_usuariosTableAdapter" Name="view_usuarios" UserDataComponentName="view_usuariosTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="qrimobConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Busca" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Busca" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Busca">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT DISTINCT 
+                         U.int_id_usr, U.str_nome_usr, U.str_cpf_usr, U.dt_cadastro_usr, U.str_status_usr, U.str_login_usr, M.str_email_mail, E.str_cep_end, E.str_logradouro_end, E.str_numero_end, E.str_bairro_end, E.str_comarca_end, 
+                         P.str_perfil_prf
+FROM            Usuario AS U LEFT OUTER JOIN
+                         link_mail_usr AS LM ON U.int_id_usr = LM.int_id_usr LEFT OUTER JOIN
+                         EMAIL AS M ON LM.int_id_mail = M.int_id_mail LEFT OUTER JOIN
+                         link_end_usr AS LE ON U.int_id_usr = LE.int_id_usr LEFT OUTER JOIN
+                         ENDERECO AS E ON LE.int_id_end = E.int_id_end LEFT OUTER JOIN
+                         link_prf_usr AS LP ON U.int_id_usr = LP.int_id_usr LEFT OUTER JOIN
+                         perfil AS P ON LP.int_id_prf = P.int_id_prf
+ORDER BY U.str_nome_usr</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="int_id_usr" DataSetColumn="int_id_usr" />
+              <Mapping SourceColumn="str_nome_usr" DataSetColumn="str_nome_usr" />
+              <Mapping SourceColumn="str_cpf_usr" DataSetColumn="str_cpf_usr" />
+              <Mapping SourceColumn="str_status_usr" DataSetColumn="str_status_usr" />
+              <Mapping SourceColumn="str_login_usr" DataSetColumn="str_login_usr" />
+              <Mapping SourceColumn="dt_cadastro_usr" DataSetColumn="dt_cadastro_usr" />
+              <Mapping SourceColumn="str_email_mail" DataSetColumn="str_email_mail" />
+              <Mapping SourceColumn="str_cep_end" DataSetColumn="str_cep_end" />
+              <Mapping SourceColumn="str_logradouro_end" DataSetColumn="str_logradouro_end" />
+              <Mapping SourceColumn="str_numero_end" DataSetColumn="str_numero_end" />
+              <Mapping SourceColumn="str_bairro_end" DataSetColumn="str_bairro_end" />
+              <Mapping SourceColumn="str_comarca_end" DataSetColumn="str_comarca_end" />
+              <Mapping SourceColumn="str_perfil_prf" DataSetColumn="str_perfil_prf" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="qrimobConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="BuscaParametro" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="BuscaParametro" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="BuscaParametro">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT DISTINCT 
+                         U.int_id_usr, U.str_nome_usr, U.str_cpf_usr, U.dt_cadastro_usr, U.str_status_usr, U.str_login_usr, M.str_email_mail, E.str_cep_end, E.str_logradouro_end, E.str_numero_end, E.str_bairro_end, E.str_comarca_end, 
+                         P.str_perfil_prf
+FROM            Usuario AS U LEFT OUTER JOIN
+                         link_mail_usr AS LM ON U.int_id_usr = LM.int_id_usr LEFT OUTER JOIN
+                         EMAIL AS M ON LM.int_id_mail = M.int_id_mail LEFT OUTER JOIN
+                         link_end_usr AS LE ON U.int_id_usr = LE.int_id_usr LEFT OUTER JOIN
+                         ENDERECO AS E ON LE.int_id_end = E.int_id_end LEFT OUTER JOIN
+                         link_prf_usr AS LP ON U.int_id_usr = LP.int_id_usr LEFT OUTER JOIN
+                         perfil AS P ON LP.int_id_prf = P.int_id_prf
+WHERE        (U.str_cpf_usr LIKE @parametro) OR
+                         (U.str_nome_usr LIKE @parametro) OR
+                         (U.str_login_usr LIKE @parametro)
+ORDER BY U.str_nome_usr</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="parametro" ColumnName="str_cpf_usr" DataSourceName="[C:\Code\QRiMov_Desktop\QRIMOB.MDF].dbo.Usuario" DataTypeServer="nvarchar(255)" DbType="String" Direction="Input" ParameterName="@parametro" Precision="0" ProviderType="NVarChar" Scale="0" Size="255" SourceColumn="str_cpf_usr" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="viewUsuarioDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="viewUsuarioDataSet" msprop:Generator_UserDSName="viewUsuarioDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="view_usuarios" msprop:Generator_TableClassName="view_usuariosDataTable" msprop:Generator_TableVarName="tableview_usuarios" msprop:Generator_TablePropName="view_usuarios" msprop:Generator_RowDeletingName="view_usuariosRowDeleting" msprop:Generator_RowChangingName="view_usuariosRowChanging" msprop:Generator_RowEvHandlerName="view_usuariosRowChangeEventHandler" msprop:Generator_RowDeletedName="view_usuariosRowDeleted" msprop:Generator_UserTableName="view_usuarios" msprop:Generator_RowChangedName="view_usuariosRowChanged" msprop:Generator_RowEvArgName="view_usuariosRowChangeEvent" msprop:Generator_RowClassName="view_usuariosRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="int_id_usr" msprop:Generator_ColumnVarNameInTable="columnint_id_usr" msprop:Generator_ColumnPropNameInRow="int_id_usr" msprop:Generator_ColumnPropNameInTable="int_id_usrColumn" msprop:Generator_UserColumnName="int_id_usr" type="xs:int" />
+              <xs:element name="str_nome_usr" msprop:Generator_ColumnVarNameInTable="columnstr_nome_usr" msprop:Generator_ColumnPropNameInRow="str_nome_usr" msprop:Generator_ColumnPropNameInTable="str_nome_usrColumn" msprop:Generator_UserColumnName="str_nome_usr" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="str_cpf_usr" msprop:Generator_ColumnVarNameInTable="columnstr_cpf_usr" msprop:Generator_ColumnPropNameInRow="str_cpf_usr" msprop:Generator_ColumnPropNameInTable="str_cpf_usrColumn" msprop:Generator_UserColumnName="str_cpf_usr" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="str_status_usr" msprop:Generator_ColumnVarNameInTable="columnstr_status_usr" msprop:Generator_ColumnPropNameInRow="str_status_usr" msprop:Generator_ColumnPropNameInTable="str_status_usrColumn" msprop:Generator_UserColumnName="str_status_usr" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="str_login_usr" msprop:Generator_ColumnVarNameInTable="columnstr_login_usr" msprop:Generator_ColumnPropNameInRow="str_login_usr" msprop:Generator_ColumnPropNameInTable="str_login_usrColumn" msprop:Generator_UserColumnName="str_login_usr" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="dt_cadastro_usr" msprop:Generator_ColumnVarNameInTable="columndt_cadastro_usr" msprop:Generator_ColumnPropNameInRow="dt_cadastro_usr" msprop:Generator_ColumnPropNameInTable="dt_cadastro_usrColumn" msprop:Generator_UserColumnName="dt_cadastro_usr" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="str_email_mail" msprop:Generator_ColumnVarNameInTable="columnstr_email_mail" msprop:Generator_ColumnPropNameInRow="str_email_mail" msprop:Generator_ColumnPropNameInTable="str_email_mailColumn" msprop:Generator_UserColumnName="str_email_mail" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="str_cep_end" msprop:Generator_ColumnVarNameInTable="columnstr_cep_end" msprop:Generator_ColumnPropNameInRow="str_cep_end" msprop:Generator_ColumnPropNameInTable="str_cep_endColumn" msprop:Generator_UserColumnName="str_cep_end" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="str_logradouro_end" msprop:Generator_ColumnVarNameInTable="columnstr_logradouro_end" msprop:Generator_ColumnPropNameInRow="str_logradouro_end" msprop:Generator_ColumnPropNameInTable="str_logradouro_endColumn" msprop:Generator_UserColumnName="str_logradouro_end" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="str_numero_end" msprop:Generator_ColumnVarNameInTable="columnstr_numero_end" msprop:Generator_ColumnPropNameInRow="str_numero_end" msprop:Generator_ColumnPropNameInTable="str_numero_endColumn" msprop:Generator_UserColumnName="str_numero_end" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="str_bairro_end" msprop:Generator_ColumnVarNameInTable="columnstr_bairro_end" msprop:Generator_ColumnPropNameInRow="str_bairro_end" msprop:Generator_ColumnPropNameInTable="str_bairro_endColumn" msprop:Generator_UserColumnName="str_bairro_end" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="str_comarca_end" msprop:Generator_ColumnVarNameInTable="columnstr_comarca_end" msprop:Generator_ColumnPropNameInRow="str_comarca_end" msprop:Generator_ColumnPropNameInTable="str_comarca_endColumn" msprop:Generator_UserColumnName="str_comarca_end" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="str_perfil_prf" msprop:Generator_ColumnVarNameInTable="columnstr_perfil_prf" msprop:Generator_ColumnPropNameInRow="str_perfil_prf" msprop:Generator_ColumnPropNameInTable="str_perfil_prfColumn" msprop:Generator_UserColumnName="str_perfil_prf" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:view_usuarios" />
+      <xs:field xpath="mstns:int_id_usr" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
