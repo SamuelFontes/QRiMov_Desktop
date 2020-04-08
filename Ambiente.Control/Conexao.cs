@@ -12,7 +12,7 @@ namespace Ambiente.Control
 {
     public class Conexao
     {
-        private static string conexao = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Code\QRiMov_Desktop\qrimob.mdf;Integrated Security=True;Connect Timeout=30";
+        private static string conexao = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Code\samuguel\QRiMov_Desktop\qrimob.mdf;Integrated Security=True;Connect Timeout=30";
         private static SqlConnection conn = null;
 
         public static SqlConnection abrirConexao()
