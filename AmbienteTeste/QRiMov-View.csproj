@@ -186,6 +186,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilitarios.cs" />
+    <Compile Include="viewCliForDataSet.cs">
+      <DependentUpon>viewCliForDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="viewCliForDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

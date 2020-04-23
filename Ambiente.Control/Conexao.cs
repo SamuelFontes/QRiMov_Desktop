@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.Common;
 using System.Configuration;
-
+using Ambiente;
 namespace Ambiente.Control
 {
     public class Conexao
     {
-        private static string conexao = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Code\samuguel\QRiMov_Desktop\qrimob.mdf;Integrated Security=True;Connect Timeout=30";
+        private static string conexao = ConfigurationManager.ConnectionStrings["qrimov"].ConnectionString;
         private static SqlConnection conn = null;
-
+        
         public static SqlConnection abrirConexao()
         {
             conn = new SqlConnection(conexao);
