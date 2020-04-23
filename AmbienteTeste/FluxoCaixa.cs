@@ -19,13 +19,16 @@ namespace AmbienteTeste
 
         private void FluxoCaixa_Load(object sender, EventArgs e)
         {
-            // TODO: esta linha de código carrega dados na tabela 'viewFinancas.saldo_bancario'. Você pode movê-la ou removê-la conforme necessário.
+            /*// TODO: esta linha de código carrega dados na tabela 'viewFinancas.saldo_bancario'. Você pode movê-la ou removê-la conforme necessário.
             this.saldo_bancarioTableAdapter.Fill(this.viewFinancas.saldo_bancario);
             // TODO: esta linha de código carrega dados na tabela 'viewFinancas.saldo_bancario'. Você pode movê-la ou removê-la conforme necessário.
             this.saldo_bancarioTableAdapter.Fill(this.viewFinancas.saldo_bancario);
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.FormBorderStyle = FormBorderStyle.None;
-
+            this.FormBorderStyle = FormBorderStyle.None;*/
+            var dt = new DataTable();
+            var ws = new TesteWS.WebService1SoapClient();
+            dt = ws.GetDataSet("select * from caracteristicas", "qrimov");
+            dataGridView1.DataSource = dt;
         }
 
         private void vieworgBindingSource_CurrentChanged(object sender, EventArgs e)

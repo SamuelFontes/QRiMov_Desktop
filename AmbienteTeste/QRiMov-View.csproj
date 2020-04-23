@@ -124,6 +124,11 @@
     <Compile Include="CadastroUsuario.Designer.cs">
       <DependentUpon>CadastroUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\TesteWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\WSCorreios\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -298,6 +303,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="Connected Services\TesteWS\WebService1.wsdl" />
     <None Include="Connected Services\WSCorreios\AmbienteTeste.WSCorreios.atualizaPagamentoNaEntregaResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -438,6 +444,7 @@
     </None>
     <None Include="Connected Services\WSCorreios\AtendeClienteService.wsdl" />
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\System.Data.DataTable.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -543,6 +550,7 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\TesteWS\" />
     <WCFMetadataStorage Include="Connected Services\WSCorreios\" />
   </ItemGroup>
   <ItemGroup>
@@ -575,6 +583,13 @@
     <None Include="Resources\magnifying-glass.png" />
     <None Include="Resources\refresh-arrow.png" />
     <None Include="Resources\WhatsApp Image 2019-11-25 at 15.00.05.jpeg" />
+    <None Include="Connected Services\TesteWS\WebService1.disco" />
+    <None Include="Connected Services\TesteWS\configuration91.svcinfo" />
+    <None Include="Connected Services\TesteWS\configuration.svcinfo" />
+    <None Include="Connected Services\TesteWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Scripts\jquery-1.4.4-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.4.js" />
     <Content Include="Scripts\jquery-1.4.4.min.js" />
