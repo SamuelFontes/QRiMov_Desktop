@@ -418,7 +418,7 @@
             // txtRazao
             // 
             this.txtRazao.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRazao.Location = new System.Drawing.Point(154, 177);
+            this.txtRazao.Location = new System.Drawing.Point(150, 102);
             this.txtRazao.MaxLength = 60;
             this.txtRazao.Name = "txtRazao";
             this.txtRazao.Size = new System.Drawing.Size(309, 26);
@@ -495,7 +495,7 @@
             this.label13.AutoSize = true;
             this.label13.BackColor = System.Drawing.Color.Transparent;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(9, 180);
+            this.label13.Location = new System.Drawing.Point(16, 104);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(128, 24);
             this.label13.TabIndex = 154;
@@ -553,7 +553,7 @@
             this.label15.AutoSize = true;
             this.label15.BackColor = System.Drawing.Color.Transparent;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(25, 71);
+            this.label15.Location = new System.Drawing.Point(16, 55);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(62, 24);
             this.label15.TabIndex = 189;
@@ -562,7 +562,7 @@
             // maskCNPJ
             // 
             this.maskCNPJ.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskCNPJ.Location = new System.Drawing.Point(12, 111);
+            this.maskCNPJ.Location = new System.Drawing.Point(150, 52);
             this.maskCNPJ.Mask = "99,999,999/9999-99";
             this.maskCNPJ.Name = "maskCNPJ";
             this.maskCNPJ.Size = new System.Drawing.Size(169, 29);
