@@ -46,7 +46,7 @@ namespace AmbienteTeste
             }
         }
 
-        
+
         private void txtCep_Leave(object sender, EventArgs e)
         {
             _LocalizaCEP();
@@ -68,22 +68,13 @@ namespace AmbienteTeste
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Console.WriteLine(ex);
+                    // TODO colocar uma identificação visual que não achou cep
                 }
             }
         }
 
-        private void TxtEmail_Leave(object sender, EventArgs e)
-        {
-            string email = txtEmail.Text;
-
-            Regex rg = new Regex(@"^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})$");
-
-            if (!rg.IsMatch(email))
-            {
-                MessageBox.Show("E-mail não é valido!");
-            }
-        }
+        
 
         private void tsSalvar_Click(object sender, EventArgs e)
         {
@@ -92,11 +83,7 @@ namespace AmbienteTeste
             Email mail = new Email();
             Telefone tel = new Telefone();
 
-            if (CmbPlano.Text=="")
-            {
-                MessageBox.Show("Selecione um plano!");
-            }
-            else
+            if (VerificarCampos())
             {
                 imobiliaria.Plano = CmbPlano.Text;
 
@@ -162,6 +149,67 @@ namespace AmbienteTeste
             txtInscMunicipal.Clear();
             txtRazao.Clear();
         }
-
+        private bool VerificarCampos()
+        {
+            string msg = "";
+            //plano
+            if (CmbPlano.Text == "")
+                msg += "- Selecione um plano! -\n";
+            //email
+            var rg = new Regex(@"^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})$");
+            if (!rg.IsMatch(txtEmail.Text))
+                msg += " - E-mail não é valido! -\n";
+            //bairro
+            if (txtBairro.Text == "")
+                msg += "- Preencha o Bairro! -\n";
+            //cep
+            rg = new Regex(@"\d{2}[.\s]?\d{3}[-.\s]?\d{3}");
+            if (!rg.IsMatch(txtCep.Text))
+                msg += " - CEP não é valido! -\n";
+            //Logradouro
+            if (txtLogradouro.Text == "")
+                msg += "- Preencha o Logradouro! -\n";
+            //Municipio
+            if (txtMunicipio.Text == "")
+                msg += "- Preencha o Municipio! -\n";
+            //CNPJ
+            rg = new Regex(@"(^\d{3}\.\d{3}\.\d{3}\-\d{2}$)|(^\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2}$)");
+            if (!rg.IsMatch(maskCNPJ.Text))
+                msg += " - CNPJ não é valido! -\n";
+            /*//CPF
+            rg = new Regex(@"(^\d{3}\.\d{3}\.\d{3}\-\d{2}$)|(^\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2}$)");
+            if (!rg.IsMatch(txtCPF.Text))
+                msg += " - CPF não é valido! -\n";
+                */
+            //Numero
+            rg = new Regex(@"^\d+$");
+            if (!rg.IsMatch(txtNumero.Text))
+                msg += " - Número não é valido! -\n";
+            //Creci
+            if (txtCreci.Text == "")
+                msg += "- Preencha o Creci! -\n";
+            //Tel
+            rg = new Regex(@"^(?:(?:\+|00)?(55)\s?)?(?:\(?([1-9][0-9])\)?\s?)?(?:((?:9\d|[2-9])\d{3})\-?(\d{4}))$");
+            if (!rg.IsMatch(txtTel.Text))
+                msg += " - Telefone não é valido! -\n";
+            //UF
+            rg = new Regex(@"^[a-zA-Z]{2}$");
+            if (!rg.IsMatch(txtUF.Text))
+                msg += " - UF não é valida! -\n";
+            //Fantasia
+            if (txtFantasia.Text == "")
+                msg += "- Preencha o Nome Fantasia! -\n";
+            //IE
+            if (txtInscEstadual.Text == "")
+                msg += "- Preencha a Inscrição Estadual! -\n";
+            //IM
+            if (txtInscMunicipal.Text == "")
+                msg += "- Preencha a Inscrição Municipal! -\n";
+            //Razao
+            if (txtRazao.Text == "")
+                msg += "- Preencha a Razão Social! -\n";
+            MessageBox.Show(msg);
+            return msg == "";
+        }
     }
 }

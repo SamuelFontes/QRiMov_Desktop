@@ -413,7 +413,6 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(331, 29);
             this.txtEmail.TabIndex = 7;
-            this.txtEmail.Leave += new System.EventHandler(this.TxtEmail_Leave);
             // 
             // txtRazao
             // 
