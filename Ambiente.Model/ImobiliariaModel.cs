@@ -1,6 +1,7 @@
 ﻿using Ambiente.Entidade;
 using Ambiente.Control;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace Ambiente.Model
 {
@@ -12,14 +13,18 @@ namespace Ambiente.Model
         {
             ImobiliariaDao login = new ImobiliariaDao();
 
-            string aviso = null;
-            if (login.salvarImobiliariaProc(i, e, m, t))
+            string aviso = VerificarCampos(i,e,m,t);
+
+            if (aviso == "")
             {
-                aviso = "Cadastro com sucesso!";
-            }
-            else
-            {
-                aviso = "Não foi possivel cadastrar a imobiliária";
+                if (login.salvarImobiliariaProc(i, e, m, t))
+                {
+                    aviso = "Cadastro com sucesso!";
+                }
+                else
+                {
+                    aviso = "Não foi possivel cadastrar a imobiliária";
+                }
             }
             return aviso;
         }
@@ -28,14 +33,18 @@ namespace Ambiente.Model
         {
             ImobiliariaDao login = new ImobiliariaDao();
 
-            string aviso = null;
-            if (login.AlteraImobiliariaProc(i, e, m, t))
+            string aviso = VerificarCampos(i, e, m, t);
+
+            if (aviso == "")
             {
-                aviso = "Alterado com sucesso!";
-            }
-            else
-            {
-                aviso = "Não foi possivel alterar a imobiliária";
+                if (login.AlteraImobiliariaProc(i, e, m, t))
+                {
+                    aviso = "Alterado com sucesso!";
+                }
+                else
+                {
+                    aviso = "Não foi possivel alterar a imobiliária";
+                }
             }
             return aviso;
         }
@@ -62,6 +71,71 @@ namespace Ambiente.Model
             List<string> lista = dados.DadosImobiliaria(id);
 
             return lista;
+        }
+        private string VerificarCampos(Imobiliaria i, Endereco e, Email m, Telefone t)
+        {
+            string msg = "";
+            //plano
+            if (i.Plano == "")
+                msg += "- Selecione um plano! -\n";
+            //email
+            var rg = new Regex(@"^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})$");
+            if (!rg.IsMatch(m.Mail))
+                msg += " - E-mail não é valido! -\n";
+            //bairro
+            if (e.Bairro == "")
+                msg += "- Preencha o Bairro! -\n";
+            //cep
+            rg = new Regex(@"\d{2}[.\s]?\d{3}[-.\s]?\d{3}");
+            if (!rg.IsMatch(e.Cep))
+                msg += " - CEP não é valido! -\n";
+            //Logradouro
+            if (e.Logradouro == "")
+                msg += "- Preencha o Logradouro! -\n";
+            //Municipio
+            if (e.Cidade == "")
+                msg += "- Preencha o Municipio! -\n";
+            //CNPJ
+            rg = new Regex(@"(^\d{3}\.\d{3}\.\d{3}\-\d{2}$)|(^\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2}$)");
+            if (!rg.IsMatch(i.Cnpj))
+                msg += " - CNPJ não é valido! -\n";
+            /*//CPF
+            rg = new Regex(@"(^\d{3}\.\d{3}\.\d{3}\-\d{2}$)|(^\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2}$)");
+            if (!rg.IsMatch(txtCPF.Text))
+                msg += " - CPF não é valido! -\n";
+                */
+            //Numero
+            rg = new Regex(@"^\d+$");
+            if (!rg.IsMatch(e.Numero))
+                msg += " - Número não é valido! -\n";
+            //Creci
+            if (i.Creci == "")
+                msg += "- Preencha o Creci! -\n";
+            //Tel Fixo
+            rg = new Regex(@"^(?:(?:\+|00)?(55)\s?)?(?:\(?([1-9][0-9])\)?\s?)?(?:((?:9\d|[2-9])\d{3})\-?(\d{4}))$");
+            if (!rg.IsMatch(t.Fixo))
+                msg += " - Telefone não é valido! -\n";
+            //Tel Celular
+            rg = new Regex(@"^(?:(?:\+|00)?(55)\s?)?(?:\(?([1-9][0-9])\)?\s?)?(?:((?:9\d|[2-9])\d{3})\-?(\d{4}))$");
+            if (!rg.IsMatch(t.Celular))
+                msg += " - Telefone não é valido! -\n";
+            //UF
+            rg = new Regex(@"^[a-zA-Z]{2}$");
+            if (!rg.IsMatch(e.Uf))
+                msg += " - UF não é valida! -\n";
+            //Fantasia
+            if (i.Fantasia == "")
+                msg += "- Preencha o Nome Fantasia! -\n";
+            //IE
+            if (i.Ie == "")
+                msg += "- Preencha a Inscrição Estadual! -\n";
+            //IM
+            if (i.Im == "")
+                msg += "- Preencha a Inscrição Municipal! -\n";
+            //Razao
+            if (i.Razao == "")
+                msg += "- Preencha a Razão Social! -\n";
+            return msg;
         }
     }
 }

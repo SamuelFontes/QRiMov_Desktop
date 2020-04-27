@@ -50,20 +50,31 @@ namespace AmbienteTeste
 
         private void tsSalvar_Click(object sender, EventArgs e)
         {
-            Imobiliaria imb = new Imobiliaria();
+            Imobiliaria imobiliaria = new Imobiliaria();
             Endereco end = new Endereco();
             Email mail = new Email();
             Telefone tel = new Telefone();
 
             //usuario
-            imb.Id = Convert.ToInt32(cod);
-            imb.Fantasia = txtFantasia.Text;
+            imobiliaria.Id = Convert.ToInt32(cod);
+            imobiliaria.Plano = CmbPlano.Text;
+
+            //imobiliaria
+
+            imobiliaria.Cnpj = maskCNPJ.Text;
+            imobiliaria.Razao = txtRazao.Text;
+            imobiliaria.Fantasia = txtFantasia.Text;
+            imobiliaria.Ie = txtInscEstadual.Text;
+            imobiliaria.Im = txtInscMunicipal.Text;
+            imobiliaria.Creci = txtCreci.Text;
 
             //endereço
             end.Cep = txtCep.Text;
             end.Logradouro = txtLogradouro.Text;
             end.Cidade = txtMunicipio.Text;
             end.Bairro = txtBairro.Text;
+            end.Uf = txtUF.Text;
+            end.Numero = txtNumero.Text;
 
             //telefone
             tel.Fixo = txtTel.Text;
@@ -75,12 +86,8 @@ namespace AmbienteTeste
             try
             {
                 ImobiliariaModel login = new ImobiliariaModel();
-                string mensagem = login.alterar(imb, end, mail, tel);
-                if (mensagem != "")
-                {
-                    MessageBox.Show(mensagem);
-                    this.Close();
-                }
+                string mensagem = login.alterar(imobiliaria, end, mail, tel);
+                MessageBox.Show(mensagem);
             }
             catch (Exception ex)
             {
