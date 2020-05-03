@@ -279,7 +279,11 @@ namespace AmbienteTeste {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class perfilDataTable : global::System.Data.TypedTableBase<perfilRow> {
             
-            private global::System.Data.DataColumn columnstr_perfil_prf;
+            private global::System.Data.DataColumn columnINT_ID_PRF;
+            
+            private global::System.Data.DataColumn columnSTR_PERFIL_PRF;
+            
+            private global::System.Data.DataColumn columnSTR_DESCRICAO_PRF;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -316,9 +320,25 @@ namespace AmbienteTeste {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn str_perfil_prfColumn {
+            public global::System.Data.DataColumn INT_ID_PRFColumn {
                 get {
-                    return this.columnstr_perfil_prf;
+                    return this.columnINT_ID_PRF;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn STR_PERFIL_PRFColumn {
+                get {
+                    return this.columnSTR_PERFIL_PRF;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn STR_DESCRICAO_PRFColumn {
+                get {
+                    return this.columnSTR_DESCRICAO_PRF;
                 }
             }
             
@@ -359,13 +379,22 @@ namespace AmbienteTeste {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public perfilRow AddperfilRow(string str_perfil_prf) {
+            public perfilRow AddperfilRow(string STR_PERFIL_PRF, string STR_DESCRICAO_PRF) {
                 perfilRow rowperfilRow = ((perfilRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        str_perfil_prf};
+                        null,
+                        STR_PERFIL_PRF,
+                        STR_DESCRICAO_PRF};
                 rowperfilRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowperfilRow);
                 return rowperfilRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public perfilRow FindByINT_ID_PRF(int INT_ID_PRF) {
+                return ((perfilRow)(this.Rows.Find(new object[] {
+                            INT_ID_PRF})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -385,15 +414,30 @@ namespace AmbienteTeste {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             internal void InitVars() {
-                this.columnstr_perfil_prf = base.Columns["str_perfil_prf"];
+                this.columnINT_ID_PRF = base.Columns["INT_ID_PRF"];
+                this.columnSTR_PERFIL_PRF = base.Columns["STR_PERFIL_PRF"];
+                this.columnSTR_DESCRICAO_PRF = base.Columns["STR_DESCRICAO_PRF"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             private void InitClass() {
-                this.columnstr_perfil_prf = new global::System.Data.DataColumn("str_perfil_prf", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnstr_perfil_prf);
-                this.columnstr_perfil_prf.MaxLength = 255;
+                this.columnINT_ID_PRF = new global::System.Data.DataColumn("INT_ID_PRF", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnINT_ID_PRF);
+                this.columnSTR_PERFIL_PRF = new global::System.Data.DataColumn("STR_PERFIL_PRF", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSTR_PERFIL_PRF);
+                this.columnSTR_DESCRICAO_PRF = new global::System.Data.DataColumn("STR_DESCRICAO_PRF", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSTR_DESCRICAO_PRF);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnINT_ID_PRF}, true));
+                this.columnINT_ID_PRF.AutoIncrement = true;
+                this.columnINT_ID_PRF.AutoIncrementSeed = -1;
+                this.columnINT_ID_PRF.AutoIncrementStep = -1;
+                this.columnINT_ID_PRF.AllowDBNull = false;
+                this.columnINT_ID_PRF.ReadOnly = true;
+                this.columnINT_ID_PRF.Unique = true;
+                this.columnSTR_PERFIL_PRF.MaxLength = 255;
+                this.columnSTR_DESCRICAO_PRF.MaxLength = 255;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -536,30 +580,69 @@ namespace AmbienteTeste {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string str_perfil_prf {
+            public int INT_ID_PRF {
+                get {
+                    return ((int)(this[this.tableperfil.INT_ID_PRFColumn]));
+                }
+                set {
+                    this[this.tableperfil.INT_ID_PRFColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string STR_PERFIL_PRF {
                 get {
                     try {
-                        return ((string)(this[this.tableperfil.str_perfil_prfColumn]));
+                        return ((string)(this[this.tableperfil.STR_PERFIL_PRFColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'str_perfil_prf\' na tabela \'perfil\' é DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'STR_PERFIL_PRF\' na tabela \'perfil\' é DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableperfil.str_perfil_prfColumn] = value;
+                    this[this.tableperfil.STR_PERFIL_PRFColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool Isstr_perfil_prfNull() {
-                return this.IsNull(this.tableperfil.str_perfil_prfColumn);
+            public string STR_DESCRICAO_PRF {
+                get {
+                    try {
+                        return ((string)(this[this.tableperfil.STR_DESCRICAO_PRFColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'STR_DESCRICAO_PRF\' na tabela \'perfil\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableperfil.STR_DESCRICAO_PRFColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void Setstr_perfil_prfNull() {
-                this[this.tableperfil.str_perfil_prfColumn] = global::System.Convert.DBNull;
+            public bool IsSTR_PERFIL_PRFNull() {
+                return this.IsNull(this.tableperfil.STR_PERFIL_PRFColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetSTR_PERFIL_PRFNull() {
+                this[this.tableperfil.STR_PERFIL_PRFColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsSTR_DESCRICAO_PRFNull() {
+                return this.IsNull(this.tableperfil.STR_DESCRICAO_PRFColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetSTR_DESCRICAO_PRFNull() {
+                this[this.tableperfil.STR_DESCRICAO_PRFColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -722,13 +805,37 @@ namespace AmbienteTeste.viewPerfilTableAdapters {
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "perfil";
-            tableMapping.ColumnMappings.Add("str_perfil_prf", "str_perfil_prf");
+            tableMapping.ColumnMappings.Add("INT_ID_PRF", "INT_ID_PRF");
+            tableMapping.ColumnMappings.Add("STR_PERFIL_PRF", "STR_PERFIL_PRF");
+            tableMapping.ColumnMappings.Add("STR_DESCRICAO_PRF", "STR_DESCRICAO_PRF");
             this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [PERFIL] WHERE (([INT_ID_PRF] = @Original_INT_ID_PRF) AND ((@IsNull_STR_PERFIL_PRF = 1 AND [STR_PERFIL_PRF] IS NULL) OR ([STR_PERFIL_PRF] = @Original_STR_PERFIL_PRF)) AND ((@IsNull_STR_DESCRICAO_PRF = 1 AND [STR_DESCRICAO_PRF] IS NULL) OR ([STR_DESCRICAO_PRF] = @Original_STR_DESCRICAO_PRF)))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_INT_ID_PRF", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "INT_ID_PRF", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_STR_PERFIL_PRF", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "STR_PERFIL_PRF", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_STR_PERFIL_PRF", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "STR_PERFIL_PRF", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_STR_DESCRICAO_PRF", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "STR_DESCRICAO_PRF", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_STR_DESCRICAO_PRF", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "STR_DESCRICAO_PRF", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[perfil] ([str_perfil_prf]) VALUES (@str_perfil_prf)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [PERFIL] ([STR_PERFIL_PRF], [STR_DESCRICAO_PRF]) VALUES (@STR_PERFIL_" +
+                "PRF, @STR_DESCRICAO_PRF)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@str_perfil_prf", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "str_perfil_prf", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@STR_PERFIL_PRF", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "STR_PERFIL_PRF", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@STR_DESCRICAO_PRF", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "STR_DESCRICAO_PRF", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [PERFIL] SET [STR_PERFIL_PRF] = @STR_PERFIL_PRF, [STR_DESCRICAO_PRF] = @STR_DESCRICAO_PRF WHERE (([INT_ID_PRF] = @Original_INT_ID_PRF) AND ((@IsNull_STR_PERFIL_PRF = 1 AND [STR_PERFIL_PRF] IS NULL) OR ([STR_PERFIL_PRF] = @Original_STR_PERFIL_PRF)) AND ((@IsNull_STR_DESCRICAO_PRF = 1 AND [STR_DESCRICAO_PRF] IS NULL) OR ([STR_DESCRICAO_PRF] = @Original_STR_DESCRICAO_PRF)))";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@STR_PERFIL_PRF", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "STR_PERFIL_PRF", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@STR_DESCRICAO_PRF", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "STR_DESCRICAO_PRF", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_INT_ID_PRF", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "INT_ID_PRF", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_STR_PERFIL_PRF", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "STR_PERFIL_PRF", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_STR_PERFIL_PRF", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "STR_PERFIL_PRF", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_STR_DESCRICAO_PRF", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "STR_DESCRICAO_PRF", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_STR_DESCRICAO_PRF", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "STR_DESCRICAO_PRF", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -744,7 +851,7 @@ namespace AmbienteTeste.viewPerfilTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT str_perfil_prf FROM dbo.perfil";
+            this._commandCollection[0].CommandText = "SELECT INT_ID_PRF, STR_PERFIL_PRF, STR_DESCRICAO_PRF FROM PERFIL";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -804,13 +911,57 @@ namespace AmbienteTeste.viewPerfilTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(int Original_INT_ID_PRF, string Original_STR_PERFIL_PRF, string Original_STR_DESCRICAO_PRF) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_INT_ID_PRF));
+            if ((Original_STR_PERFIL_PRF == null)) {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_STR_PERFIL_PRF));
+            }
+            if ((Original_STR_DESCRICAO_PRF == null)) {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_STR_DESCRICAO_PRF));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string str_perfil_prf) {
-            if ((str_perfil_prf == null)) {
+        public virtual int Insert(string STR_PERFIL_PRF, string STR_DESCRICAO_PRF) {
+            if ((STR_PERFIL_PRF == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(str_perfil_prf));
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(STR_PERFIL_PRF));
+            }
+            if ((STR_DESCRICAO_PRF == null)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(STR_DESCRICAO_PRF));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -824,6 +975,56 @@ namespace AmbienteTeste.viewPerfilTableAdapters {
             finally {
                 if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
                     this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string STR_PERFIL_PRF, string STR_DESCRICAO_PRF, int Original_INT_ID_PRF, string Original_STR_PERFIL_PRF, string Original_STR_DESCRICAO_PRF) {
+            if ((STR_PERFIL_PRF == null)) {
+                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(STR_PERFIL_PRF));
+            }
+            if ((STR_DESCRICAO_PRF == null)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(STR_DESCRICAO_PRF));
+            }
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Original_INT_ID_PRF));
+            if ((Original_STR_PERFIL_PRF == null)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Original_STR_PERFIL_PRF));
+            }
+            if ((Original_STR_DESCRICAO_PRF == null)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_STR_DESCRICAO_PRF));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
                 }
             }
         }

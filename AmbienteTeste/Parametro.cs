@@ -23,7 +23,6 @@ namespace AmbienteTeste
         {
             // TODO: esta linha de código carrega dados na tabela 'viewPerfil.perfil'. Você pode movê-la ou removê-la conforme necessário.
             this.perfilTableAdapter.Fill(this.viewPerfil.perfil);
-            this.FormBorderStyle = FormBorderStyle.None;
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
@@ -41,7 +40,7 @@ namespace AmbienteTeste
             }
             else { 
                 p.Nome = txtNome.Text;
-
+                p.Permissoes = "";
                 if (cbCliFor.Checked == true){
                     p.Permissoes = cbCliFor.Text;
                 }
@@ -57,27 +56,35 @@ namespace AmbienteTeste
                 {
                     p.Permissoes += " " + cbUsuario.Text;
                 }
-               
-                try
+                if (p.Permissoes != "")
                 {
-                    PerfilModel perfil = new PerfilModel();
-                    string mensagem = perfil.salvar(p);
-                    if (mensagem != "")
+                    try
                     {
-                        MessageBox.Show(mensagem);
+                        PerfilModel perfil = new PerfilModel();
+                        string mensagem = perfil.salvar(p);
+                        if (mensagem != "")
+                        {
+                            MessageBox.Show(mensagem);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Erro: " + ex);
                     }
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show("Erro: " + ex);
+                    MessageBox.Show("Pelo menos alguma permissão deve vinculada ao perfil");
                 }
+                this.perfilTableAdapter.Fill(this.viewPerfil.perfil);
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             Perfil p = new Perfil();
-            p.Nome = txtNomeDeletar.Text;
+            int index = dataGridView1.CurrentRow.Index;
+            p.Id = Convert.ToInt32(dataGridView1.Rows[index].Cells[0].Value);
 
             try
             {
@@ -92,6 +99,33 @@ namespace AmbienteTeste
             {
                 MessageBox.Show("Erro: " + ex);
             }
+            this.perfilTableAdapter.Fill(this.viewPerfil.perfil);
+
+        }
+
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+            button1_Click(sender, e);
+        }
+
+        private void txtNomeDeletar_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox5_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dataGridView1.CurrentRow.Selected = true;
         }
     }
 }

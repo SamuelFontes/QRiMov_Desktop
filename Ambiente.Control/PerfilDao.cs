@@ -36,9 +36,9 @@ namespace Ambiente.Control
             }
             return var;
         }
-        public bool DeletarPerfil(string nome)
+        public bool DeletarPerfil(int id)
         {
-            string sql = "DELETE FROM PERFIL WHERE STR_PERFIL_PRF='" + nome + "'";
+            string sql = "DELETE FROM PERFIL WHERE INT_ID_PRF=" + id.ToString() + "";
             try
             {
                 SqlCommand cmd = new SqlCommand(sql, conn);

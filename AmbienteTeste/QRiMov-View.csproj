@@ -223,6 +223,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>viewImobiliaria1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="viewPerfil.cs">
+      <DependentUpon>viewPerfil.xsd</DependentUpon>
+    </Compile>
     <Compile Include="viewPerfil.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

@@ -30,7 +30,7 @@ namespace Ambiente.Model
             PerfilDao per = new PerfilDao();
 
             string aviso = null;
-            if (per.DeletarPerfil(p.Nome))
+            if (per.DeletarPerfil(p.Id))
             {
                 aviso = "Deletado com sucesso!";
             }
