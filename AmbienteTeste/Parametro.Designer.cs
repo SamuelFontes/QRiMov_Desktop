@@ -145,9 +145,9 @@
             this.cbUsuario.AutoSize = true;
             this.cbUsuario.Location = new System.Drawing.Point(18, 94);
             this.cbUsuario.Name = "cbUsuario";
-            this.cbUsuario.Size = new System.Drawing.Size(93, 28);
+            this.cbUsuario.Size = new System.Drawing.Size(124, 28);
             this.cbUsuario.TabIndex = 3;
-            this.cbUsuario.Text = "Usuário";
+            this.cbUsuario.Text = "Parâmetros";
             this.cbUsuario.UseVisualStyleBackColor = true;
             // 
             // cbImobiliaria
@@ -155,9 +155,9 @@
             this.cbImobiliaria.AutoSize = true;
             this.cbImobiliaria.Location = new System.Drawing.Point(18, 71);
             this.cbImobiliaria.Name = "cbImobiliaria";
-            this.cbImobiliaria.Size = new System.Drawing.Size(113, 28);
+            this.cbImobiliaria.Size = new System.Drawing.Size(156, 28);
             this.cbImobiliaria.TabIndex = 2;
-            this.cbImobiliaria.Text = "Imobiliária";
+            this.cbImobiliaria.Text = "Fluxo de Caixa";
             this.cbImobiliaria.UseVisualStyleBackColor = true;
             // 
             // cbFinanceiro
@@ -165,9 +165,9 @@
             this.cbFinanceiro.AutoSize = true;
             this.cbFinanceiro.Location = new System.Drawing.Point(18, 48);
             this.cbFinanceiro.Name = "cbFinanceiro";
-            this.cbFinanceiro.Size = new System.Drawing.Size(119, 28);
+            this.cbFinanceiro.Size = new System.Drawing.Size(102, 28);
             this.cbFinanceiro.TabIndex = 1;
-            this.cbFinanceiro.Text = "Financeiro";
+            this.cbFinanceiro.Text = "Usuários";
             this.cbFinanceiro.UseVisualStyleBackColor = true;
             // 
             // cbCliFor
@@ -175,9 +175,9 @@
             this.cbCliFor.AutoSize = true;
             this.cbCliFor.Location = new System.Drawing.Point(18, 24);
             this.cbCliFor.Name = "cbCliFor";
-            this.cbCliFor.Size = new System.Drawing.Size(192, 28);
+            this.cbCliFor.Size = new System.Drawing.Size(108, 28);
             this.cbCliFor.TabIndex = 0;
-            this.cbCliFor.Text = "Cliente/Fornecedor";
+            this.cbCliFor.Text = "Parceiros";
             this.cbCliFor.UseVisualStyleBackColor = true;
             // 
             // btnSalvar

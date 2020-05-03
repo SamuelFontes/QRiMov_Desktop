@@ -43,30 +43,61 @@ namespace Ambiente.Control
             }
             return var;
         }
-
-       /* public bool salvarUsuario(Usuario dados){
-            
-            string sql = "INSERT INTO USUARIO  VALUES ('" + dados.Nome + "','" + dados.Status + "','" + dados.Cpf + "','" + dados.Dtnascimento + "', getdate() ,'" + dados.User + "','" + dados.Senha + "');";
-            
+        public string verificaPrermissoes(string login, string senha)
+        {
+            string param = "";
+            cmd.CommandText = "SELECT P.STR_DESCRICAO_PRF FROM PERFIL P,USUARIO U, LINK_PRF_USR L " +
+                "WHERE U.INT_ID_USR = L.INT_ID_USR AND L.INT_ID_PRF = P.INT_ID_PRF and u.str_login_usr=@user " +
+                "and u.str_senha_usr=@password";
+            cmd.Parameters.AddWithValue("@user", login);
+            cmd.Parameters.AddWithValue("@password", senha);
             try
             {
-                SqlCommand cmd = new SqlCommand(sql, conn);
-                int res = cmd.ExecuteNonQuery();
-                if (res > 0)
+                cmd.Connection = conn;
+                dr = cmd.ExecuteReader();
+                if (dr.HasRows)
                 {
-                    var = true;
+                    while (dr.Read())
+                    {
+                        param += String.Format("{0}", dr[0]);
+                    }
+                    mensagem = "Login encontrado";
+                }
+                else
+                {
+                    mensagem = "Login não encontrado!";
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine("erro: " + ex.ToString());
+                mensagem = "Erro: " + ex;
             }
-            finally
-            {
-                Conexao.fechaConexao();
-            }
-            return var;
-        }*/
+            return param;
+        }
+
+        /* public bool salvarUsuario(Usuario dados){
+
+             string sql = "INSERT INTO USUARIO  VALUES ('" + dados.Nome + "','" + dados.Status + "','" + dados.Cpf + "','" + dados.Dtnascimento + "', getdate() ,'" + dados.User + "','" + dados.Senha + "');";
+
+             try
+             {
+                 SqlCommand cmd = new SqlCommand(sql, conn);
+                 int res = cmd.ExecuteNonQuery();
+                 if (res > 0)
+                 {
+                     var = true;
+                 }
+             }
+             catch (Exception ex)
+             {
+                 Console.WriteLine("erro: " + ex.ToString());
+             }
+             finally
+             {
+                 Conexao.fechaConexao();
+             }
+             return var;
+         }*/
 
         public bool salvarUsuarioProc(Usuario usr,Endereco end, Email mail, Telefone tel)
         {

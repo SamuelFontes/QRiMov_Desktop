@@ -34,7 +34,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.btnUsuario = new System.Windows.Forms.Button();
             this.btnFluxo = new System.Windows.Forms.Button();
-            this.BtnCadastro = new System.Windows.Forms.Button();
             this.btnImobiliaria = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
@@ -71,7 +70,6 @@
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.btnUsuario);
             this.groupBox1.Controls.Add(this.btnFluxo);
-            this.groupBox1.Controls.Add(this.BtnCadastro);
             this.groupBox1.Controls.Add(this.btnImobiliaria);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(13, 154);
@@ -87,9 +85,9 @@
             this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(19, 307);
+            this.button1.Location = new System.Drawing.Point(19, 238);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(161, 40);
+            this.button1.Size = new System.Drawing.Size(161, 39);
             this.button1.TabIndex = 6;
             this.button1.Text = "Parâmetro";
             this.button1.UseVisualStyleBackColor = false;
@@ -101,9 +99,9 @@
             this.btnUsuario.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnUsuario.BackgroundImage")));
             this.btnUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUsuario.Location = new System.Drawing.Point(19, 173);
+            this.btnUsuario.Location = new System.Drawing.Point(19, 104);
             this.btnUsuario.Name = "btnUsuario";
-            this.btnUsuario.Size = new System.Drawing.Size(161, 40);
+            this.btnUsuario.Size = new System.Drawing.Size(161, 39);
             this.btnUsuario.TabIndex = 5;
             this.btnUsuario.Text = "Usuários";
             this.btnUsuario.UseVisualStyleBackColor = false;
@@ -114,28 +112,14 @@
             this.btnFluxo.BackColor = System.Drawing.Color.Transparent;
             this.btnFluxo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnFluxo.BackgroundImage")));
             this.btnFluxo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnFluxo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFluxo.Location = new System.Drawing.Point(19, 240);
+            this.btnFluxo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFluxo.Location = new System.Drawing.Point(19, 171);
             this.btnFluxo.Name = "btnFluxo";
-            this.btnFluxo.Size = new System.Drawing.Size(161, 40);
+            this.btnFluxo.Size = new System.Drawing.Size(161, 39);
             this.btnFluxo.TabIndex = 4;
             this.btnFluxo.Text = "Fluxo de Caixa";
             this.btnFluxo.UseVisualStyleBackColor = false;
             this.btnFluxo.Click += new System.EventHandler(this.btnFluxo_Click);
-            // 
-            // BtnCadastro
-            // 
-            this.BtnCadastro.BackColor = System.Drawing.Color.Transparent;
-            this.BtnCadastro.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnCadastro.BackgroundImage")));
-            this.BtnCadastro.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnCadastro.Location = new System.Drawing.Point(19, 106);
-            this.BtnCadastro.Name = "BtnCadastro";
-            this.BtnCadastro.Size = new System.Drawing.Size(161, 40);
-            this.BtnCadastro.TabIndex = 2;
-            this.BtnCadastro.Text = "Cliente/Fornecedor";
-            this.BtnCadastro.UseVisualStyleBackColor = false;
-            this.BtnCadastro.Click += new System.EventHandler(this.button3_Click);
             // 
             // btnImobiliaria
             // 
@@ -147,7 +131,7 @@
             this.btnImobiliaria.Name = "btnImobiliaria";
             this.btnImobiliaria.Size = new System.Drawing.Size(161, 40);
             this.btnImobiliaria.TabIndex = 1;
-            this.btnImobiliaria.Text = "Imobiliárias";
+            this.btnImobiliaria.Text = "Parceiros";
             this.btnImobiliaria.UseVisualStyleBackColor = false;
             this.btnImobiliaria.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -278,7 +262,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnUsuario;
         private System.Windows.Forms.Button btnFluxo;
-        private System.Windows.Forms.Button BtnCadastro;
         private System.Windows.Forms.Button btnImobiliaria;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button1;

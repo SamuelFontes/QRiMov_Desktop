@@ -22,7 +22,13 @@ namespace Ambiente.Model
             }
             return aviso;
         }
+        public string permissoes(Usuario u)
+        {
+            UsuarioDao login = new UsuarioDao();
 
+            string perm = login.verificaPrermissoes(u.User, u.Senha);
+            return perm;
+        }
         public string salvar(Usuario u, Endereco e, Email m, Telefone t)
         {
             UsuarioDao login = new UsuarioDao();

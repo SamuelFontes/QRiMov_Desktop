@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Ambiente.Entidade;
+using Ambiente.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,8 +15,10 @@ namespace AmbienteTeste
 {
     public partial class Inicio : Form
     {
-        public Inicio()
+        string param;
+        public Inicio(string Param)
         {
+            this.param = Param;
             InitializeComponent();
 
         }
@@ -27,6 +31,15 @@ namespace AmbienteTeste
             }
             else
             {
+                if (!param.Contains("Parceiros"))
+                    btnImobiliaria.Enabled = false;
+                if (!param.Contains("Usuários"))
+                    btnUsuario.Enabled = false;
+                if (!param.Contains("Fluxo de Caixa"))
+                    btnFluxo.Enabled = false;
+                if (!param.Contains("Parâmetros"))
+                    button1.Enabled = false;
+                // verificar permissoes
                 Pdrawer.Show();
             }
         }

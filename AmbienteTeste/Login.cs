@@ -30,7 +30,7 @@ namespace AmbienteTeste
 
             UsuarioModel login = new UsuarioModel();
             string mensagem = login.acessar(pessoa);
-            if (mensagem != "")
+            if (mensagem == "Login ou senha não é válido!")
             {
                 txtLogin.Text = "";
                 txtSenha.Text = "";
@@ -49,7 +49,6 @@ namespace AmbienteTeste
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
-            Inicio frmInicial = new Inicio(); ;
             if (progressBar1.Value < 100)
             {
                 progressBar1.Value = progressBar1.Value + 10;
@@ -57,9 +56,13 @@ namespace AmbienteTeste
             }
             if (progressBar1.Value == 100)
             {
+                Usuario pessoa = new Usuario();
+                pessoa.User = txtLogin.Text;
+                pessoa.Senha = txtSenha.Text;
+                UsuarioModel login = new UsuarioModel();
+                string param = login.permissoes(pessoa);
+                Inicio frmInicial = new Inicio(param);
                 frmInicial.Show(); // abre o form principal
-                //MessageBox.Show("AEEE porra");
-           
                 timer1.Stop();       // para o relógio
                 this.Hide();         //fecha a janela após completar os 100%
             }
