@@ -31,13 +31,21 @@ namespace AmbienteTeste
             }
             else
             {
-                if (!param.Contains("Parceiros"))
+                if (param.Contains("Parceiros"))
+                    btnImobiliaria.Enabled = true;
+                else
                     btnImobiliaria.Enabled = false;
-                if (!param.Contains("Usuários"))
+                if (param.Contains("Usuários"))
+                    btnUsuario.Enabled = true;
+                else
                     btnUsuario.Enabled = false;
-                if (!param.Contains("Fluxo de Caixa"))
+                if (param.Contains("Fluxo de Caixa"))
+                    btnFluxo.Enabled = true;
+                else
                     btnFluxo.Enabled = false;
-                if (!param.Contains("Parâmetros"))
+                if (param.Contains("Parâmetros"))
+                    button1.Enabled = true;
+                else
                     button1.Enabled = false;
                 // verificar permissoes
                 Pdrawer.Show();
