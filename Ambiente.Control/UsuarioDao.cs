@@ -99,10 +99,11 @@ namespace Ambiente.Control
              return var;
          }*/
 
-        public bool salvarUsuarioProc(Usuario usr,Endereco end, Email mail, Telefone tel)
+        public bool salvarUsuarioProc(Usuario usr, Email mail )
         {
 
-            string sql = " InsereUsuario null,null,null,null,'" + usr.Nome + "','" + usr.Status + "','" + usr.Cpf + "','" + usr.Dtnascimento + "','" + usr.User + "','" + usr.Senha + "','" + end.Cep + "', '" + end.Logradouro + "','" + end.Numero + "','" + end.Bairro + "','" + end.Cidade + "','" + end.Uf + "', '" + mail.Mail + "','" + mail.DescEmail + "','" + tel.Fixo + "','" + tel.Celular + "','" + usr.Perfil+ "',null";
+            string sql = " InsereUsuario null,null,'" + usr.Nome + "','" + usr.User + "','" + usr.Senha + "','" +
+                 mail.Mail + "','" + mail.DescEmail + "','" + usr.Perfil+ "',null";
             try
             {
                 SqlCommand cmd = new SqlCommand(sql, conn);
@@ -123,10 +124,10 @@ namespace Ambiente.Control
             return var;
         }
 
-        public bool AlterasuarioProc(Usuario usr, Endereco end, Email mail, Telefone tel)
+        public bool AlterasuarioProc(Usuario usr,  Email mail)
         {
 
-            string sql = " AlteraUsuario null,null,'"+usr.Id+"',null,null,'" + usr.Nome + "','" + usr.Status + "','" + end.Cep + "', '" + end.Logradouro + "','" + end.Numero + "','" + end.Bairro + "','" + end.Cidade + "','" + end.Uf + "', '" + mail.Mail + "','" + tel.Fixo + "','" + tel.Celular + "','" + usr.Perfil + "'";
+            string sql = " AlteraUsuario null,'"+usr.Id+"',null,'" + usr.Nome + "','" + mail.Mail + "','" + usr.Perfil + "'";
             try
             {
                 SqlCommand cmd = new SqlCommand(sql, conn);
@@ -210,20 +211,12 @@ namespace Ambiente.Control
                 dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
-                    lista.Add( dr["str_cpf_usr"].ToString());
-                    lista.Add( dr["dt_cadastro_usr"].ToString());
-                    lista.Add( dr["str_nome_usr"].ToString());
-                    lista.Add( dr["str_perfil_prf"].ToString());
-                    lista.Add( dr["str_status_usr"].ToString());
-                    lista.Add( dr["str_login_usr"].ToString());
-                    lista.Add( dr["str_cep_end"].ToString());
-                    lista.Add( dr["str_numero_end"].ToString());
-                    lista.Add( dr["str_logradouro_end"].ToString());
-                    lista.Add( dr["str_bairro_end"].ToString());
-                    lista.Add( dr["str_comarca_end"].ToString());
-                    lista.Add( dr["str_email_mail"].ToString());
-                    lista.Add( dr["str_telefone_tel"].ToString());
-                    lista.Add( dr["str_celular_tel"].ToString());
+                    lista.Add( dr["INT_ID_USR"].ToString());
+                    lista.Add( dr["STR_NOME_USR"].ToString());
+                    lista.Add( dr["DT_CADASTRO_USR"].ToString());
+                    lista.Add( dr["STR_LOGIN_USR"].ToString());
+                    lista.Add( dr["STR_EMAIL_MAIL"].ToString());
+                    lista.Add( dr["STR_PERFIL_PRF"].ToString());
                 }
             }
             catch (Exception ex)

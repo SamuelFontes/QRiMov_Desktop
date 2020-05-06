@@ -48,9 +48,7 @@ namespace AmbienteTeste
             List<string> lista=um.Dados(cod);
             
             
-            maskCPF.Text = lista[0].ToString(); 
-            txtCadastro.Text = lista[1].ToString();
-            txtNome.Text = lista[2].ToString();
+            txtNome.Text = lista[1].ToString();
             // varre as linhas do grid...
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
@@ -58,71 +56,32 @@ namespace AmbienteTeste
                 foreach (DataGridViewColumn column in dataGridView1.Columns)
                 {
                     // seleciona a linha que é igual ao perfil no banco
-                    if(lista[3].ToString() == row.Cells[1].Value.ToString()){
+                    if(lista[5].ToString() == row.Cells[1].Value.ToString()){
                         row.DataGridView.Select();
                     }
                 }
             }
-            if (lista[4].ToString() == "Ativo")
-            {
-                cbAtivo.Checked = true;
-            }
-            else
-            {
-                cbAtivo.Checked = false;
-            }
-            txtUsuario.Text = lista[5].ToString();
-            txtCep.Text = lista[6].ToString();
-            txtNumero.Text = lista[7].ToString();
-            txtLogradouro.Text = lista[8].ToString();
-            txtBairro.Text = lista[9].ToString();
-            txtMunicipio.Text = lista[10].ToString();
-            txtEmail.Text = lista[11].ToString();
-            txtTel.Text = lista[12].ToString();
-            txtCel.Text = lista[13].ToString();
+            txtUsuario.Text = lista[3].ToString();
+            txtEmail.Text = lista[4].ToString();
         }
 
         private void tsSalvar_Click(object sender, EventArgs e)
         {
             Usuario pessoa = new Usuario();
-            Endereco end = new Endereco();
             Email mail = new Email();
-            Telefone tel = new Telefone();
 
-            if (cbAtivo.Checked == true)
-            {
-                pessoa.Status = "Ativo";
-            }
-            else
-            {
-                pessoa.Status = "Inativo";
-            }
             //usuario
             pessoa.Id =Convert.ToInt32(cod);
             pessoa.Nome = txtNome.Text;
            
-            //endereço
-            end.Cep = txtCep.Text;
-            end.Logradouro = txtLogradouro.Text;
-            end.Cidade = txtMunicipio.Text;
-            end.Bairro = txtBairro.Text;
-
-            //telefone
-            tel.Fixo = txtTel.Text;
-            tel.Celular = txtCel.Text;
-
             //email
             mail.Mail = txtEmail.Text;
 
             try
             {
                 UsuarioModel login = new UsuarioModel();
-                string mensagem = login.Alterar(pessoa, end, mail, tel);
-                if (mensagem != "")
-                {
-                    MessageBox.Show(mensagem);
-                    this.Close();
-                }
+                string mensagem = login.Alterar(pessoa,  mail);
+                MessageBox.Show(mensagem);
             }
             catch (Exception ex)
             {

@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Ambiente.Control;
+﻿using Ambiente.Control;
 using Ambiente.Entidade;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace Ambiente.Model
 {
@@ -29,34 +26,39 @@ namespace Ambiente.Model
             string perm = login.verificaPrermissoes(u.User, u.Senha);
             return perm;
         }
-        public string salvar(Usuario u, Endereco e, Email m, Telefone t)
+        public string salvar(Usuario u,Email m)
         {
             UsuarioDao login = new UsuarioDao();
 
-            string aviso = null;
-            if (login.salvarUsuarioProc(u, e , m, t))
-            {
-                aviso = "Cadastro com sucesso!";
-            }
-            else
-            {
-                aviso = "Não foi possivel cadastrar o usuário";
+            string aviso = verificarCampos(u,  m);
+            if (aviso == "")
+            { 
+                if (login.salvarUsuarioProc(u, m))
+                {
+                    aviso = "Cadastro com sucesso!";
+                }
+                else
+                {
+                    aviso = "Não foi possivel cadastrar o usuário";
+                }
             }
             return aviso;
         }
 
-        public string Alterar(Usuario u, Endereco e, Email m, Telefone t)
+        public string Alterar(Usuario u,Email m)
         {
             UsuarioDao login = new UsuarioDao();
-
-            string aviso = null;
-            if (login.AlterasuarioProc(u, e, m, t))
+            string aviso = verificarCampos(u, m);
+            if (aviso == "")
             {
-                aviso = "Alterado com sucesso!";
-            }
-            else
-            {
-                aviso = "Não foi possivel alterar o usuário";
+                if (login.AlterasuarioProc(u, m))
+                {
+                    aviso = "Alterado com sucesso!";
+                }
+                else
+                {
+                    aviso = "Não foi possivel alterar o usuário";
+                }
             }
             return aviso;
         }
@@ -99,6 +101,28 @@ namespace Ambiente.Model
             List<string> lista = dados.DadosUsuarios(id);
             
             return lista;
+        }
+        private string verificarCampos(Usuario pessoa, Email mail)
+        {
+            string msg = "";
+
+            if (pessoa.Perfil=="")
+                msg += "- Selecione um Perfil! -\n";
+            //usuario
+            if (pessoa.User == "")
+                msg += "- Preencha o campo Usuário! -\n";
+            if (pessoa.Senha == "")
+                msg += "- Preencha o campo Senha! -\n";
+            if(pessoa.Senha != null)
+                if (pessoa.Senha.Length<5)
+                    msg += "- Senha muito curta! -\n";
+            if (pessoa.Nome == "")
+                msg += "- Preencha o campo Nome! -\n";
+            //email
+            var rg = new Regex(@"^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})$");
+            if (!rg.IsMatch(mail.Mail))
+                msg += " - E-mail não é valido! -\n";
+            return msg;
         }
     }
 }

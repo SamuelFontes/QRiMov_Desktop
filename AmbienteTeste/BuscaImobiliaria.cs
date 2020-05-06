@@ -25,6 +25,9 @@ namespace AmbienteTeste
 
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormBorderStyle = FormBorderStyle.None;
+            string result = "%" + txtBusca.Text + "%";
+            this.view_orgTableAdapter1.BuscaParametro(this.viewCliForDataSet.view_org, result);
+
         }
 
         private void toolStripButton1_Click_1(object sender, EventArgs e)
@@ -44,7 +47,8 @@ namespace AmbienteTeste
         {
             if (txtBusca.Text.Length == 0)
             {
-                this.view_orgTableAdapter1.Fill(this.viewCliForDataSet.view_org);
+                string result = "%" + txtBusca.Text + "%";
+                this.view_orgTableAdapter1.BuscaParametro(this.viewCliForDataSet.view_org, result);
             }
         }
 
@@ -65,13 +69,11 @@ namespace AmbienteTeste
             int index = dataGridView1.CurrentRow.Index;
             string id = dataGridView1.Rows[index].Cells[0].Value.ToString();
 
-            AlteraImobiliaria frmAlt = new AlteraImobiliaria(id);
-            frmAlt.Show();
+            var frmAdd = new AlteraImobiliaria(id);
+            var utilitario = new Utilitarios();
+            utilitario.criarForm(frmAdd);
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+        
     }
 }

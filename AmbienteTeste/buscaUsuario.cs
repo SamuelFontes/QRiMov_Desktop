@@ -57,9 +57,10 @@ namespace AmbienteTeste
             int index = dataGridView1.CurrentRow.Index;
             string id= dataGridView1.Rows[index].Cells[0].Value.ToString();
             
-            AlteraUsuario frmAlt = new AlteraUsuario(id);
-            frmAlt.Show();
-            
+            var frmAdd = new AlteraUsuario(id);
+            var utilitario = new Utilitarios();
+            utilitario.criarForm(frmAdd);
+
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)

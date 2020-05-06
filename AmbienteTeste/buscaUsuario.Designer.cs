@@ -39,21 +39,16 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.int_id_usr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.strnomeusrDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.strcpfusrDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.strstatususrDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.strloginusrDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stremailmailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.strlogradouroendDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.strbairroendDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.strcomarcaendDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.strperfilprfDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.viewusuariosBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.viewUsuarioDataSet = new AmbienteTeste.viewUsuarioDataSet();
             this.view_usuariosTableAdapter = new AmbienteTeste.viewUsuarioDataSetTableAdapters.view_usuariosTableAdapter();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.int_id_usr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.strnomeusrDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.strloginusrDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stremailmailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.strperfilprfDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.viewusuariosBindingSource1)).BeginInit();
@@ -148,13 +143,8 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.int_id_usr,
             this.strnomeusrDataGridViewTextBoxColumn,
-            this.strcpfusrDataGridViewTextBoxColumn,
-            this.strstatususrDataGridViewTextBoxColumn,
             this.strloginusrDataGridViewTextBoxColumn,
             this.stremailmailDataGridViewTextBoxColumn,
-            this.strlogradouroendDataGridViewTextBoxColumn,
-            this.strbairroendDataGridViewTextBoxColumn,
-            this.strcomarcaendDataGridViewTextBoxColumn,
             this.strperfilprfDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.viewusuariosBindingSource1;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -164,86 +154,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(800, 392);
             this.dataGridView1.TabIndex = 161;
             this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick_1);
-            // 
-            // int_id_usr
-            // 
-            this.int_id_usr.DataPropertyName = "int_id_usr";
-            this.int_id_usr.HeaderText = "ID";
-            this.int_id_usr.Name = "int_id_usr";
-            this.int_id_usr.ReadOnly = true;
-            this.int_id_usr.Visible = false;
-            this.int_id_usr.Width = 30;
-            // 
-            // strnomeusrDataGridViewTextBoxColumn
-            // 
-            this.strnomeusrDataGridViewTextBoxColumn.DataPropertyName = "str_nome_usr";
-            this.strnomeusrDataGridViewTextBoxColumn.HeaderText = "Nome";
-            this.strnomeusrDataGridViewTextBoxColumn.Name = "strnomeusrDataGridViewTextBoxColumn";
-            this.strnomeusrDataGridViewTextBoxColumn.ReadOnly = true;
-            this.strnomeusrDataGridViewTextBoxColumn.Width = 130;
-            // 
-            // strcpfusrDataGridViewTextBoxColumn
-            // 
-            this.strcpfusrDataGridViewTextBoxColumn.DataPropertyName = "str_cpf_usr";
-            this.strcpfusrDataGridViewTextBoxColumn.HeaderText = "CPF";
-            this.strcpfusrDataGridViewTextBoxColumn.Name = "strcpfusrDataGridViewTextBoxColumn";
-            this.strcpfusrDataGridViewTextBoxColumn.ReadOnly = true;
-            this.strcpfusrDataGridViewTextBoxColumn.Width = 90;
-            // 
-            // strstatususrDataGridViewTextBoxColumn
-            // 
-            this.strstatususrDataGridViewTextBoxColumn.DataPropertyName = "str_status_usr";
-            this.strstatususrDataGridViewTextBoxColumn.HeaderText = "Status";
-            this.strstatususrDataGridViewTextBoxColumn.Name = "strstatususrDataGridViewTextBoxColumn";
-            this.strstatususrDataGridViewTextBoxColumn.ReadOnly = true;
-            this.strstatususrDataGridViewTextBoxColumn.Width = 60;
-            // 
-            // strloginusrDataGridViewTextBoxColumn
-            // 
-            this.strloginusrDataGridViewTextBoxColumn.DataPropertyName = "str_login_usr";
-            this.strloginusrDataGridViewTextBoxColumn.HeaderText = "Login";
-            this.strloginusrDataGridViewTextBoxColumn.Name = "strloginusrDataGridViewTextBoxColumn";
-            this.strloginusrDataGridViewTextBoxColumn.ReadOnly = true;
-            this.strloginusrDataGridViewTextBoxColumn.Width = 130;
-            // 
-            // stremailmailDataGridViewTextBoxColumn
-            // 
-            this.stremailmailDataGridViewTextBoxColumn.DataPropertyName = "str_email_mail";
-            this.stremailmailDataGridViewTextBoxColumn.HeaderText = "E-mail";
-            this.stremailmailDataGridViewTextBoxColumn.Name = "stremailmailDataGridViewTextBoxColumn";
-            this.stremailmailDataGridViewTextBoxColumn.ReadOnly = true;
-            this.stremailmailDataGridViewTextBoxColumn.Width = 250;
-            // 
-            // strlogradouroendDataGridViewTextBoxColumn
-            // 
-            this.strlogradouroendDataGridViewTextBoxColumn.DataPropertyName = "str_logradouro_end";
-            this.strlogradouroendDataGridViewTextBoxColumn.HeaderText = "Logradouro";
-            this.strlogradouroendDataGridViewTextBoxColumn.Name = "strlogradouroendDataGridViewTextBoxColumn";
-            this.strlogradouroendDataGridViewTextBoxColumn.ReadOnly = true;
-            this.strlogradouroendDataGridViewTextBoxColumn.Width = 300;
-            // 
-            // strbairroendDataGridViewTextBoxColumn
-            // 
-            this.strbairroendDataGridViewTextBoxColumn.DataPropertyName = "str_bairro_end";
-            this.strbairroendDataGridViewTextBoxColumn.HeaderText = "Bairro";
-            this.strbairroendDataGridViewTextBoxColumn.Name = "strbairroendDataGridViewTextBoxColumn";
-            this.strbairroendDataGridViewTextBoxColumn.ReadOnly = true;
-            this.strbairroendDataGridViewTextBoxColumn.Width = 130;
-            // 
-            // strcomarcaendDataGridViewTextBoxColumn
-            // 
-            this.strcomarcaendDataGridViewTextBoxColumn.DataPropertyName = "str_comarca_end";
-            this.strcomarcaendDataGridViewTextBoxColumn.HeaderText = "Cidade";
-            this.strcomarcaendDataGridViewTextBoxColumn.Name = "strcomarcaendDataGridViewTextBoxColumn";
-            this.strcomarcaendDataGridViewTextBoxColumn.ReadOnly = true;
-            this.strcomarcaendDataGridViewTextBoxColumn.Width = 130;
-            // 
-            // strperfilprfDataGridViewTextBoxColumn
-            // 
-            this.strperfilprfDataGridViewTextBoxColumn.DataPropertyName = "str_perfil_prf";
-            this.strperfilprfDataGridViewTextBoxColumn.HeaderText = "Perfil";
-            this.strperfilprfDataGridViewTextBoxColumn.Name = "strperfilprfDataGridViewTextBoxColumn";
-            this.strperfilprfDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // viewusuariosBindingSource1
             // 
@@ -275,6 +185,46 @@
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
             this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn2.Width = 50;
+            // 
+            // int_id_usr
+            // 
+            this.int_id_usr.DataPropertyName = "int_id_usr";
+            this.int_id_usr.HeaderText = "ID";
+            this.int_id_usr.Name = "int_id_usr";
+            this.int_id_usr.ReadOnly = true;
+            this.int_id_usr.Visible = false;
+            this.int_id_usr.Width = 30;
+            // 
+            // strnomeusrDataGridViewTextBoxColumn
+            // 
+            this.strnomeusrDataGridViewTextBoxColumn.DataPropertyName = "str_nome_usr";
+            this.strnomeusrDataGridViewTextBoxColumn.HeaderText = "Nome";
+            this.strnomeusrDataGridViewTextBoxColumn.Name = "strnomeusrDataGridViewTextBoxColumn";
+            this.strnomeusrDataGridViewTextBoxColumn.ReadOnly = true;
+            this.strnomeusrDataGridViewTextBoxColumn.Width = 130;
+            // 
+            // strloginusrDataGridViewTextBoxColumn
+            // 
+            this.strloginusrDataGridViewTextBoxColumn.DataPropertyName = "str_login_usr";
+            this.strloginusrDataGridViewTextBoxColumn.HeaderText = "Login";
+            this.strloginusrDataGridViewTextBoxColumn.Name = "strloginusrDataGridViewTextBoxColumn";
+            this.strloginusrDataGridViewTextBoxColumn.ReadOnly = true;
+            this.strloginusrDataGridViewTextBoxColumn.Width = 130;
+            // 
+            // stremailmailDataGridViewTextBoxColumn
+            // 
+            this.stremailmailDataGridViewTextBoxColumn.DataPropertyName = "str_email_mail";
+            this.stremailmailDataGridViewTextBoxColumn.HeaderText = "E-mail";
+            this.stremailmailDataGridViewTextBoxColumn.Name = "stremailmailDataGridViewTextBoxColumn";
+            this.stremailmailDataGridViewTextBoxColumn.ReadOnly = true;
+            this.stremailmailDataGridViewTextBoxColumn.Width = 250;
+            // 
+            // strperfilprfDataGridViewTextBoxColumn
+            // 
+            this.strperfilprfDataGridViewTextBoxColumn.DataPropertyName = "str_perfil_prf";
+            this.strperfilprfDataGridViewTextBoxColumn.HeaderText = "Perfil";
+            this.strperfilprfDataGridViewTextBoxColumn.Name = "strperfilprfDataGridViewTextBoxColumn";
+            this.strperfilprfDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // buscaUsuario
             // 
@@ -323,16 +273,11 @@
         private viewUsuarioDataSetTableAdapters.view_usuariosTableAdapter view_usuariosTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn strtelefonetelDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn strcelulartelDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.DataGridViewTextBoxColumn int_id_usr;
         private System.Windows.Forms.DataGridViewTextBoxColumn strnomeusrDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn strcpfusrDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn strstatususrDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn strloginusrDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn stremailmailDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn strlogradouroendDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn strbairroendDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn strcomarcaendDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn strperfilprfDataGridViewTextBoxColumn;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
     }
 }
