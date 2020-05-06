@@ -67,8 +67,8 @@ namespace Ambiente.Model
 
         public List<string> Dados(string id)
         {
-            ImobiliariaDao dados = new ImobiliariaDao();
-            List<string> lista = dados.DadosImobiliaria(id);
+            CliForDao dados = new CliForDao();
+            List<string> lista = dados.DadosCliFor(id);
 
             return lista;
         }

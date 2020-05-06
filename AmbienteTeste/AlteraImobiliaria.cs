@@ -26,21 +26,49 @@ namespace AmbienteTeste
             ImobiliariaModel um = new ImobiliariaModel();
 
             List<string> lista = um.Dados(cod);
-
-            maskCNPJ.Text = lista[0].ToString();
-            txtRazao.Text = lista[1].ToString();
-            txtFantasia.Text = lista[2].ToString();
-            txtEmail.Text = lista[3].ToString();
-            txtCep.Text = lista[4].ToString();
-            txtNumero.Text = lista[6].ToString();
-            txtLogradouro.Text = lista[5].ToString();
-            txtBairro.Text = lista[7].ToString();
-            txtMunicipio.Text = lista[9].ToString();
-            txtUF.Text = lista[8].ToString();
-            txtTel.Text = lista[10].ToString();
-            txtCel.Text = lista[11].ToString();
-            txtCreci.Text = lista[13].ToString(); //creci
-            CmbPlano.Text = lista[12].ToString();
+            if (lista[0] == null)
+            {
+                MessageBox.Show("Este registro não existe!");
+                this.Close();
+                return;
+            }
+            if (lista[0].Length == 14)
+            {
+                // cpf 
+                cbCPF.Checked = true;
+                cbCNPJ.Checked = false;
+                maskCnpj.Visible = false;
+                maskCpf.Visible = true;
+                txtRazao.Enabled = false;
+                lbFantasia.Text = "Nome";
+                maskCpf.Text = lista[0].ToString();
+            }
+            else
+            {
+                // CNPJ
+                cbCNPJ.Checked = true;
+                cbCPF.Checked = false;
+                maskCnpj.Visible = true;
+                maskCpf.Visible = false;
+                lbFantasia.Text = "Nome Fantasia";
+                maskCnpj.Text = lista[0].ToString();
+            }
+            txtRazao.Text = lista[2].ToString();
+            // tipo
+            if (lista[3].ToString().Contains("Cliente"))
+                cbCliente.Checked = true;
+            if (lista[3].ToString().Contains("Fornecedo"))
+                cbFornecedor.Checked = true;
+            txtFantasia.Text = lista[4].ToString();
+            txtEmail.Text = lista[5].ToString();
+            txtCep.Text = lista[6].ToString();
+            txtNumero.Text = lista[8].ToString();
+            txtLogradouro.Text = lista[7].ToString();
+            txtBairro.Text = lista[9].ToString();
+            cbUF.Text = lista[10].ToString();
+            txtMunicipio.Text = lista[11].ToString();
+            txtTel.Text = lista[12].ToString();
+            txtCel.Text = lista[13].ToString();
         }
 
         private void tsFechar_Click(object sender, EventArgs e)
@@ -50,30 +78,49 @@ namespace AmbienteTeste
 
         private void tsSalvar_Click(object sender, EventArgs e)
         {
-            Imobiliaria imobiliaria = new Imobiliaria();
+            var cli = new CliFor();
             Endereco end = new Endereco();
             Email mail = new Email();
             Telefone tel = new Telefone();
 
             //usuario
-            imobiliaria.Id = Convert.ToInt32(cod);
-            imobiliaria.Plano = CmbPlano.Text;
+            cli.Id = Convert.ToInt32(cod);
+            if (maskCpf.Visible == false)
+            {
+                cli.Identificacao = maskCnpj.Text;
 
+            }
+            else
+            {
+
+                cli.Identificacao = maskCpf.Text;
+            }
+            if (cbCliente.Checked == true && cbFornecedor.Checked == true)
+            {
+                cli.Tipo = "Cliente/Fornecedor";
+            }
+            else if (cbCliente.Checked == true && cbFornecedor.Checked == false)
+            {
+                cli.Tipo = "Cliente";
+            }
+            else if (cbCliente.Checked == false && cbFornecedor.Checked == true)
+            {
+                cli.Tipo = "Fornecedor";
+            }
             //imobiliaria
+            if (txtRazao.Enabled)
+                cli.Razao = txtRazao.Text;
+            else
+                cli.Razao = "";
+            cli.Fantasia = txtFantasia.Text;
 
-            imobiliaria.Cnpj = maskCNPJ.Text;
-            imobiliaria.Razao = txtRazao.Text;
-            imobiliaria.Fantasia = txtFantasia.Text;
-            imobiliaria.Ie = txtInscEstadual.Text;
-            imobiliaria.Im = txtInscMunicipal.Text;
-            imobiliaria.Creci = txtCreci.Text;
 
             //endereço
             end.Cep = txtCep.Text;
             end.Logradouro = txtLogradouro.Text;
             end.Cidade = txtMunicipio.Text;
             end.Bairro = txtBairro.Text;
-            end.Uf = txtUF.Text;
+            end.Uf = cbUF.Text;
             end.Numero = txtNumero.Text;
 
             //telefone
@@ -85,8 +132,8 @@ namespace AmbienteTeste
 
             try
             {
-                ImobiliariaModel login = new ImobiliariaModel();
-                string mensagem = login.alterar(imobiliaria, end, mail, tel);
+                var login = new CliForModel();
+                string mensagem = login.alterar(cli, end, mail, tel);
                 MessageBox.Show(mensagem);
             }
             catch (Exception ex)
@@ -117,5 +164,23 @@ namespace AmbienteTeste
                 MessageBox.Show("Erro: " + ex);
             }
         }
+
+        private void cbCPF_CheckedChanged(object sender, EventArgs e)
+        {
+            maskCpf.Visible = true;
+            maskCnpj.Visible = false;
+            txtRazao.Enabled = false;
+            lbFantasia.Text = "Nome";
+        }
+
+        private void cbCNPJ_CheckedChanged(object sender, EventArgs e)
+        {
+            maskCnpj.Visible = true;
+            maskCpf.Visible = false;
+            lbFantasia.Text = "Nome Fantasia";
+            txtRazao.Enabled = true;
+        }
+
+        
     }
 }

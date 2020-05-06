@@ -20,10 +20,8 @@ namespace AmbienteTeste
 
         private void CadastroImob_Load(object sender, EventArgs e)
         {
-            // TODO: esta linha de código carrega dados na tabela 'viewImobiliaria.view_org'. Você pode movê-la ou removê-la conforme necessário.
-            this.view_orgTableAdapter.Fill(this.viewImobiliaria.view_org);
-            // TODO: esta linha de código carrega dados na tabela 'viewImobiliaria.view_org'. Você pode movê-la ou removê-la conforme necessário.
-            this.view_orgTableAdapter.Fill(this.viewImobiliaria.view_org);
+            // TODO: esta linha de código carrega dados na tabela 'viewCliForDataSet.view_org'. Você pode movê-la ou removê-la conforme necessário.
+            this.view_orgTableAdapter1.Fill(this.viewCliForDataSet.view_org);
 
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormBorderStyle = FormBorderStyle.None;
@@ -46,20 +44,20 @@ namespace AmbienteTeste
         {
             if (txtBusca.Text.Length == 0)
             {
-                this.view_orgTableAdapter.Fill(this.viewImobiliaria.view_org);
+                this.view_orgTableAdapter1.Fill(this.viewCliForDataSet.view_org);
             }
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             string result = "%" + txtBusca.Text + "%";
-            this.view_orgTableAdapter.BuscaParametro(this.viewImobiliaria.view_org, result);
+            this.view_orgTableAdapter1.BuscaParametro(this.viewCliForDataSet.view_org, result);
         }
 
         private void txtBusca_KeyPress(object sender, KeyPressEventArgs e)
         {
             string result = "%" + txtBusca.Text + "%";
-            this.view_orgTableAdapter.BuscaParametro(this.viewImobiliaria.view_org, result);
+            this.view_orgTableAdapter1.BuscaParametro(this.viewCliForDataSet.view_org, result);
         }
 
         private void dataGridView1_DoubleClick_1(object sender, EventArgs e)

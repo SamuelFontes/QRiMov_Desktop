@@ -44,10 +44,13 @@
             this.vieworgBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.viewImobiliaria = new AmbienteTeste.viewImobiliaria();
             this.view_orgTableAdapter = new AmbienteTeste.viewImobiliariaTableAdapters.view_orgTableAdapter();
+            this.viewCliForDataSet = new AmbienteTeste.viewCliForDataSet();
+            this.vieworgBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.view_orgTableAdapter1 = new AmbienteTeste.viewCliForDataSetTableAdapters.view_orgTableAdapter();
             this.intidorgDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.strcependDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,11 +58,12 @@
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.strufendDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.strplanoorgDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vieworgBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.viewImobiliaria)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.viewCliForDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vieworgBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -169,17 +173,16 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.intidorgDataGridViewTextBoxColumn,
             this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn4,
             this.strcependDataGridViewTextBoxColumn,
             this.dataGridViewTextBoxColumn5,
             this.strnumeroendDataGridViewTextBoxColumn,
             this.dataGridViewTextBoxColumn6,
             this.strufendDataGridViewTextBoxColumn,
-            this.dataGridViewTextBoxColumn7,
-            this.strplanoorgDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.vieworgBindingSource;
+            this.dataGridViewTextBoxColumn7});
+            this.dataGridView1.DataSource = this.vieworgBindingSource1;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 58);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
@@ -204,6 +207,20 @@
             // 
             this.view_orgTableAdapter.ClearBeforeFill = true;
             // 
+            // viewCliForDataSet
+            // 
+            this.viewCliForDataSet.DataSetName = "viewCliForDataSet";
+            this.viewCliForDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // vieworgBindingSource1
+            // 
+            this.vieworgBindingSource1.DataMember = "view_org";
+            this.vieworgBindingSource1.DataSource = this.viewCliForDataSet;
+            // 
+            // view_orgTableAdapter1
+            // 
+            this.view_orgTableAdapter1.ClearBeforeFill = true;
+            // 
             // intidorgDataGridViewTextBoxColumn
             // 
             this.intidorgDataGridViewTextBoxColumn.DataPropertyName = "int_id_org";
@@ -214,28 +231,28 @@
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "str_identificao_org";
-            this.dataGridViewTextBoxColumn1.HeaderText = "CNPJ/CPF";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Identificação";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "str_razao_org";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Razão Social";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "str_fantasia_org";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Nome Fantasia";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Nome";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "str_razao_org";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Razão";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.DataPropertyName = "str_email_mail";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Email";
+            this.dataGridViewTextBoxColumn4.HeaderText = "E-Mail";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
@@ -277,16 +294,9 @@
             // dataGridViewTextBoxColumn7
             // 
             this.dataGridViewTextBoxColumn7.DataPropertyName = "str_comarca_end";
-            this.dataGridViewTextBoxColumn7.HeaderText = "Comarca";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Município";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            // 
-            // strplanoorgDataGridViewTextBoxColumn
-            // 
-            this.strplanoorgDataGridViewTextBoxColumn.DataPropertyName = "str_plano_org";
-            this.strplanoorgDataGridViewTextBoxColumn.HeaderText = "Plano";
-            this.strplanoorgDataGridViewTextBoxColumn.Name = "strplanoorgDataGridViewTextBoxColumn";
-            this.strplanoorgDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // BuscaImobiliaria
             // 
@@ -314,6 +324,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vieworgBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.viewImobiliaria)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.viewCliForDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vieworgBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -341,10 +353,13 @@
         private viewImobiliaria viewImobiliaria;
         private System.Windows.Forms.BindingSource vieworgBindingSource;
         private viewImobiliariaTableAdapters.view_orgTableAdapter view_orgTableAdapter;
+        private viewCliForDataSet viewCliForDataSet;
+        private System.Windows.Forms.BindingSource vieworgBindingSource1;
+        private viewCliForDataSetTableAdapters.view_orgTableAdapter view_orgTableAdapter1;
         private System.Windows.Forms.DataGridViewTextBoxColumn intidorgDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn strcependDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
@@ -352,6 +367,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn strufendDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn strplanoorgDataGridViewTextBoxColumn;
     }
 }

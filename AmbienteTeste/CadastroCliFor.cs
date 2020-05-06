@@ -17,26 +17,17 @@ namespace AmbienteTeste
         public CadastroCliFor()
         {
             InitializeComponent();
-            maskCnpj.Visible = true;
-            maskCpf.Visible = false;
-            txtRazao.Enabled = true;
-            lbFantasia.Text = "Nome Fantasia";
+            
         }
 
         private void rbCpf_CheckedChanged(object sender, EventArgs e)
         {
-            maskCpf.Visible = true;
-            maskCnpj.Visible = false;
-            txtRazao.Enabled = false;
-            lbFantasia.Text = "Nome";
+            
         }
 
         private void rbCNPJ_CheckedChanged(object sender, EventArgs e)
         {
-            maskCnpj.Visible = true;
-            maskCpf.Visible = false;
-            lbFantasia.Text = "Nome Fantasia";
-            txtRazao.Enabled = true;
+            
         }
 
         private void tsSalvar_Click(object sender, EventArgs e)
@@ -45,29 +36,9 @@ namespace AmbienteTeste
             Endereco end = new Endereco();
             Email mail = new Email();
             Telefone tel = new Telefone();
-            if (maskCpf.Visible == false)
-            {
-                cli.Identificacao= maskCnpj.Text;
+           
 
-            }
-            else
-            {
-                
-                cli.Identificacao = maskCpf.Text;
-            }
-
-            if (cbCliente.Checked == true && cbFornecedor.Checked == true)
-            {
-                cli.Tipo = "Cliente/Fornecedor";
-            }
-            else if (cbCliente.Checked == true && cbFornecedor.Checked == false)
-            {
-                cli.Tipo = "Cliente";
-            }
-            else if (cbCliente.Checked == false && cbFornecedor.Checked == true)
-            {
-                cli.Tipo = "Fornecedor";
-            }
+            
 
             
             //cliente/fornecedor
@@ -121,8 +92,6 @@ namespace AmbienteTeste
             txtEmail.Clear();
             txtLogradouro.Clear();
             txtMunicipio.Clear();
-            maskCnpj.Clear();
-            maskCpf.Clear();
             txtNumero.Clear();
             txtTel.Clear();
             txtUF.Clear();

@@ -21,7 +21,12 @@ namespace Ambiente.Control
         public bool salvarCliForProc(CliFor org, Endereco end, Email mail,Telefone tel)
         {
 
-            string sql = " InsereCliFor null,null,null,null,'" + org.Razao + "','" + org.Fantasia + "','" + org.Identificacao + "','" + org.Ie + "','" + org.Im + "','" + org.Tipo + "','" + org.Nome + "','" + end.Cep + "', '" + end.Logradouro + "','" + end.Numero + "','" + end.Bairro + "','" + end.Cidade + "','" + end.Uf + "', '" + mail.Mail + "','" + mail.DescEmail + "','" + tel.Fixo + "','" + tel.Celular + "'";
+            string sql = " InsereCliFor null,null,null,null,'" + org.Razao +
+                "','" + org.Fantasia + "','" + org.Identificacao + "','"
+                + org.Tipo + "','" + org.Nome + "','" + end.Cep + 
+                "', '" + end.Logradouro + "','" + end.Numero + "','" + end.Bairro + "','" 
+                + end.Cidade + "','" + end.Uf + "', '" + mail.Mail + "','" + mail.DescEmail + 
+                "','" + tel.Fixo + "','" + tel.Celular + "'";
             Console.WriteLine(sql);
             try
             {
@@ -56,7 +61,9 @@ namespace Ambiente.Control
                 while (dr.Read())
                 {
                     lista.Add(dr["str_identificao_org"].ToString());
+                    lista.Add(dr["str_nome_org"].ToString());
                     lista.Add(dr["str_razao_org"].ToString());
+                    lista.Add(dr["str_tipo_org"].ToString());
                     lista.Add(dr["str_fantasia_org"].ToString());
                     lista.Add(dr["str_email_mail"].ToString());
                     lista.Add(dr["str_cep_end"].ToString());
@@ -82,7 +89,7 @@ namespace Ambiente.Control
         public bool AlteraCliForProc(CliFor clfr, Endereco end, Email mail, Telefone tel)
         {
 
-            string sql = " AlteraImobiliaria null,null,'" + clfr.Id + "',null,'" + clfr.Fantasia + "','" + end.Cep + "', '" + end.Logradouro + "','" + end.Numero + "','" + end.Bairro + "','" + end.Cidade + "','" + end.Uf + "', '" + mail.Mail + "','" + tel.Fixo + "','" + tel.Celular + "'";
+            string sql = " AlteraImobiliaria null,null,'" + clfr.Id + "',null,'" + clfr.Razao + "','" + clfr.Fantasia + "','"+ clfr.Identificacao + "','" + clfr.Tipo + "','" + clfr.Nome + "','" + end.Cep + "', '" + end.Logradouro + "','" + end.Numero + "','" + end.Bairro + "','" + end.Cidade + "','" + end.Uf + "', '" + mail.Mail + "','" + tel.Fixo + "','" + tel.Celular + "'";
             Console.WriteLine(sql);
             try
             {

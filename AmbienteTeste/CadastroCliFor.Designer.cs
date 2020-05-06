@@ -37,9 +37,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtInscEstadual = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.rbCNPJ = new System.Windows.Forms.RadioButton();
-            this.rbCpf = new System.Windows.Forms.RadioButton();
             this.txtCep = new System.Windows.Forms.MaskedTextBox();
             this.txtUF = new System.Windows.Forms.TextBox();
             this.lbUF = new System.Windows.Forms.Label();
@@ -62,12 +59,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.maskCpf = new System.Windows.Forms.MaskedTextBox();
-            this.maskCnpj = new System.Windows.Forms.MaskedTextBox();
-            this.cbCliente = new System.Windows.Forms.CheckBox();
-            this.cbFornecedor = new System.Windows.Forms.CheckBox();
             this.toolStrip1.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tsSalvar
@@ -155,42 +147,6 @@
             this.label5.Size = new System.Drawing.Size(190, 24);
             this.label5.TabIndex = 216;
             this.label5.Text = "Inscrição Municipal";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.rbCNPJ);
-            this.groupBox3.Controls.Add(this.rbCpf);
-            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(10, 60);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(159, 47);
-            this.groupBox3.TabIndex = 215;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "CPF/CNPJ";
-            // 
-            // rbCNPJ
-            // 
-            this.rbCNPJ.AutoSize = true;
-            this.rbCNPJ.Checked = true;
-            this.rbCNPJ.Location = new System.Drawing.Point(76, 20);
-            this.rbCNPJ.Name = "rbCNPJ";
-            this.rbCNPJ.Size = new System.Drawing.Size(76, 28);
-            this.rbCNPJ.TabIndex = 1;
-            this.rbCNPJ.TabStop = true;
-            this.rbCNPJ.Text = "CNPJ";
-            this.rbCNPJ.UseVisualStyleBackColor = true;
-            this.rbCNPJ.CheckedChanged += new System.EventHandler(this.rbCNPJ_CheckedChanged);
-            // 
-            // rbCpf
-            // 
-            this.rbCpf.AutoSize = true;
-            this.rbCpf.Location = new System.Drawing.Point(7, 20);
-            this.rbCpf.Name = "rbCpf";
-            this.rbCpf.Size = new System.Drawing.Size(65, 28);
-            this.rbCpf.TabIndex = 0;
-            this.rbCpf.Text = "CPF";
-            this.rbCpf.UseVisualStyleBackColor = true;
-            this.rbCpf.CheckedChanged += new System.EventHandler(this.rbCpf_CheckedChanged);
             // 
             // txtCep
             // 
@@ -407,64 +363,16 @@
             this.label13.TabIndex = 189;
             this.label13.Text = "Razão social";
             // 
-            // maskCpf
-            // 
-            this.maskCpf.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskCpf.Location = new System.Drawing.Point(17, 125);
-            this.maskCpf.Mask = "000,000,000-99";
-            this.maskCpf.Name = "maskCpf";
-            this.maskCpf.Size = new System.Drawing.Size(133, 29);
-            this.maskCpf.TabIndex = 1;
-            this.maskCpf.Visible = false;
-            // 
-            // maskCnpj
-            // 
-            this.maskCnpj.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskCnpj.Location = new System.Drawing.Point(17, 125);
-            this.maskCnpj.Mask = "00,000,000/0000-00";
-            this.maskCnpj.Name = "maskCnpj";
-            this.maskCnpj.Size = new System.Drawing.Size(171, 29);
-            this.maskCnpj.TabIndex = 2;
-            this.maskCnpj.Visible = false;
-            // 
-            // cbCliente
-            // 
-            this.cbCliente.AutoSize = true;
-            this.cbCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbCliente.Location = new System.Drawing.Point(283, 81);
-            this.cbCliente.Name = "cbCliente";
-            this.cbCliente.Size = new System.Drawing.Size(87, 28);
-            this.cbCliente.TabIndex = 222;
-            this.cbCliente.Text = "Cliente";
-            this.cbCliente.UseVisualStyleBackColor = true;
-            // 
-            // cbFornecedor
-            // 
-            this.cbFornecedor.AutoSize = true;
-            this.cbFornecedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbFornecedor.Location = new System.Drawing.Point(283, 112);
-            this.cbFornecedor.Name = "cbFornecedor";
-            this.cbFornecedor.Size = new System.Drawing.Size(129, 28);
-            this.cbFornecedor.TabIndex = 223;
-            this.cbFornecedor.Text = "Fornecedor";
-            this.cbFornecedor.UseVisualStyleBackColor = true;
-            this.cbFornecedor.CheckedChanged += new System.EventHandler(this.cbFornecedor_CheckedChanged);
-            // 
             // CadastroCliFor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1124, 426);
-            this.Controls.Add(this.cbFornecedor);
-            this.Controls.Add(this.cbCliente);
-            this.Controls.Add(this.maskCnpj);
-            this.Controls.Add(this.maskCpf);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.txtInscMunicipal);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtInscEstadual);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.txtCep);
             this.Controls.Add(this.txtUF);
             this.Controls.Add(this.lbUF);
@@ -493,8 +401,6 @@
             this.Text = "CadastroCliFor";
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -510,9 +416,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtInscEstadual;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.RadioButton rbCNPJ;
-        private System.Windows.Forms.RadioButton rbCpf;
         private System.Windows.Forms.MaskedTextBox txtCep;
         private System.Windows.Forms.TextBox txtUF;
         private System.Windows.Forms.Label lbUF;
@@ -535,9 +438,5 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.MaskedTextBox maskCpf;
-        private System.Windows.Forms.MaskedTextBox maskCnpj;
-        private System.Windows.Forms.CheckBox cbCliente;
-        private System.Windows.Forms.CheckBox cbFornecedor;
     }
 }

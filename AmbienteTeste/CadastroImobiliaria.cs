@@ -19,6 +19,10 @@ namespace AmbienteTeste
         public CadastroImobiliaria()
         {
             InitializeComponent();
+            maskCnpj.Visible = true;
+            maskCpf.Visible = false;
+            txtRazao.Enabled = true;
+            lbFantasia.Text = "Nome Fantasia";
         }
 
         private void tsFechar_Click(object sender, EventArgs e)
@@ -28,22 +32,7 @@ namespace AmbienteTeste
 
         private void CmbPlano_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (CmbPlano.Text == "Sem Plano")
-            {
-                qtd.Text = "0";
-            }
-            else if (CmbPlano.Text == "Silver")
-            {
-                qtd.Text = "15";
-            }
-            else if (CmbPlano.Text == "Gold")
-            {
-                qtd.Text = "30";
-            }
-            else if (CmbPlano.Text == "Platinum")
-            {
-                qtd.Text = "50";
-            }
+
         }
 
 
@@ -64,7 +53,7 @@ namespace AmbienteTeste
                     txtLogradouro.Text = resultado.end;
                     txtMunicipio.Text = resultado.cidade;
                     txtBairro.Text = resultado.bairro;
-                    txtUF.Text = resultado.uf;
+                    cbUF.Text = resultado.uf;
                 }
                 catch (Exception ex)
                 {
@@ -78,29 +67,49 @@ namespace AmbienteTeste
 
         private void tsSalvar_Click(object sender, EventArgs e)
         {
-            Imobiliaria imobiliaria = new Imobiliaria();
+            CliFor cli = new CliFor();
             Endereco end = new Endereco();
             Email mail = new Email();
             Telefone tel = new Telefone();
 
-            
-            imobiliaria.Plano = CmbPlano.Text;
 
+            if (maskCpf.Visible == false)
+            {
+                cli.Identificacao = maskCnpj.Text;
+
+            }
+            else
+            {
+
+                cli.Identificacao = maskCpf.Text;
+            }
+            if (cbCliente.Checked == true && cbFornecedor.Checked == true)
+            {
+                cli.Tipo = "Cliente/Fornecedor";
+            }
+            else if (cbCliente.Checked == true && cbFornecedor.Checked == false)
+            {
+                cli.Tipo = "Cliente";
+            }
+            else if (cbCliente.Checked == false && cbFornecedor.Checked == true)
+            {
+                cli.Tipo = "Fornecedor";
+            }
             //imobiliaria
 
-            imobiliaria.Cnpj = maskCNPJ.Text;
-            imobiliaria.Razao = txtRazao.Text;
-            imobiliaria.Fantasia = txtFantasia.Text;
-            imobiliaria.Ie = txtInscEstadual.Text;
-            imobiliaria.Im = txtInscMunicipal.Text;
-            imobiliaria.Creci = txtCreci.Text;
+            if (txtRazao.Enabled)
+                cli.Razao = txtRazao.Text;
+            else
+                cli.Razao = "";
+            cli.Fantasia = txtFantasia.Text;
+
 
             //endereço
             end.Cep = txtCep.Text;
             end.Logradouro = txtLogradouro.Text;
             end.Cidade = txtMunicipio.Text;
             end.Bairro = txtBairro.Text;
-            end.Uf = txtUF.Text;
+            end.Uf = cbUF.Text;
             end.Numero = txtNumero.Text;
 
             //telefone
@@ -113,8 +122,8 @@ namespace AmbienteTeste
 
             try
             {
-                ImobiliariaModel imob = new ImobiliariaModel();
-                string mensagem = imob.salvar(imobiliaria, end, mail, tel);
+                var imob = new CliForModel();
+                string mensagem = imob.salvar(cli, end, mail, tel);
                 MessageBox.Show(mensagem);
                 if (mensagem == "Cadastro com sucesso!")
                         this.Close();
@@ -133,17 +142,26 @@ namespace AmbienteTeste
             txtEmail.Clear();
             txtLogradouro.Clear();
             txtMunicipio.Clear();
-            txtCNPJ.Clear();
-            txtCPF.Clear();
             txtNumero.Clear();
-            txtCreci.Clear();
             txtTel.Clear();
-            txtUF.Clear();
             txtFantasia.Clear();
-            txtInscEstadual.Clear();
-            txtInscMunicipal.Clear();
             txtRazao.Clear();
         }
-       
+
+        private void cbCPF_CheckedChanged(object sender, EventArgs e)
+        {
+            maskCpf.Visible = true;
+            maskCnpj.Visible = false;
+            txtRazao.Enabled = false;
+            lbFantasia.Text = "Nome";
+        }
+
+        private void cbCNPJ_CheckedChanged(object sender, EventArgs e)
+        {
+            maskCnpj.Visible = true;
+            maskCpf.Visible = false;
+            lbFantasia.Text = "Nome Fantasia";
+            txtRazao.Enabled = true;
+        }
     }
 }
