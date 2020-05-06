@@ -23,6 +23,12 @@ namespace Ambiente.Control
         public bool salvar(Fluxo f)
         {
             string sql = "";
+            sql = "INSERT INTO FLUXO_CAIXA VALUES (INT_ID_ORG, '"+f.Tipo
+                + "', '" + f.Descricao
+                + "', " + f.Valor.ToString()
+                + ",'" + f.Data
+                + "', ''" + f.Movimento
+                + "', '"+ f.Pagamento+"')";
            // string sql = "INSERT INTO FLUXO_CAIXA VALUES("+f.Id_empresa.ToString()+",'"+f.Tipo+
            //     "','"+f.Descricao+"','"+f.Valor.ToString()"','" + f.Data.ToString("yyyy/MM/dd HH:mm:ss")+"')";
             Console.WriteLine(sql);
@@ -48,7 +54,7 @@ namespace Ambiente.Control
 
         public List<string> Dados(string id)
         {
-            string sql = "SELECT * FROM view_CliFor WHERE int_id_org='" + id + "';";
+            string sql = "SELECT * FROM FLUXO_CAIXA WHERE INT_ID_FLUXO =  " + id.ToString() + ";";
             Console.WriteLine(sql);
             List<string> lista = new List<string>();
 
@@ -58,18 +64,14 @@ namespace Ambiente.Control
                 dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
-                    lista.Add(dr["str_identificao_org"].ToString());
-                    lista.Add(dr["str_razao_org"].ToString());
-                    lista.Add(dr["str_fantasia_org"].ToString());
-                    lista.Add(dr["str_email_mail"].ToString());
-                    lista.Add(dr["str_cep_end"].ToString());
-                    lista.Add(dr["str_logradouro_end"].ToString());
-                    lista.Add(dr["str_numero_end"].ToString());
-                    lista.Add(dr["str_bairro_end"].ToString());
-                    lista.Add(dr["str_uf_end"].ToString());
-                    lista.Add(dr["str_comarca_end"].ToString());
-                    lista.Add(dr["str_telefone_tel"].ToString());
-                    lista.Add(dr["str_celular_tel"].ToString());
+                    lista.Add(dr["INT_ID_FLUXO"].ToString());
+                    lista.Add(dr["INT_ID_ORG"].ToString());
+                    lista.Add(dr["STR_TIPO_FLUXO"].ToString());
+                    lista.Add(dr["STR_DESCRICAO_FLUXO"].ToString());
+                    lista.Add(dr["STR_VALOR_FLUXO"].ToString());
+                    lista.Add(dr["DT_DATA_FLUXO"].ToString());
+                    lista.Add(dr["STR_MOVIMENTO_FLUXO"].ToString());
+                    lista.Add(dr["STR_PAGAMENTO_FLUXO"].ToString());
                 }
             }
             catch (Exception ex)
@@ -85,7 +87,12 @@ namespace Ambiente.Control
         public bool Alterar(Fluxo f)
         {
 
-            string sql = "UPDATE";
+            string sql = "UPDATE SET INT_ID_ORG = INT_ID_ORG STR_TIPO_FLUXO =  '" + f.Tipo
+                + "' STR_DESCRICAO_FLUXO =  '" + f.Descricao
+                + "' STR_VALOR_FLUXO =  " + f.Valor.ToString()
+                + " DT_DATA_FLUXO = '" + f.Data
+                + "' STR_MOVIMENTO_FLUXO =  ''" + f.Movimento
+                + "' STR_PAGAMENTO_FLUXO =  '" + f.Pagamento + "' WHERE INT_ID_FLUXO = "+f.Id.ToString();
             Console.WriteLine(sql);
             try
             {
@@ -110,7 +117,7 @@ namespace Ambiente.Control
         public bool Deletar(Fluxo f)
         {
 
-            string sql = "DELETE";
+            string sql = "DELETE FROM FLUXO_CAIXA WHERE INT_ID_FLUXO =" + f.Id.ToString();
             Console.WriteLine(sql);
             try
             {

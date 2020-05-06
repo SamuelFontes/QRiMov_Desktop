@@ -46,8 +46,7 @@ namespace AmbienteTeste
             UsuarioModel um = new UsuarioModel();
             
             List<string> lista=um.Dados(cod);
-            
-            
+
             txtNome.Text = lista[1].ToString();
             // varre as linhas do grid...
             foreach (DataGridViewRow row in dataGridView1.Rows)
@@ -76,6 +75,7 @@ namespace AmbienteTeste
            
             //email
             mail.Mail = txtEmail.Text;
+            pessoa.Perfil = dataGridView1.CurrentRow.Cells[0].Value.ToString();
 
             try
             {

@@ -127,7 +127,7 @@ namespace Ambiente.Control
         public bool AlterasuarioProc(Usuario usr,  Email mail)
         {
 
-            string sql = " AlteraUsuario null,'"+usr.Id+"',null,'" + usr.Nome + "','" + mail.Mail + "','" + usr.Perfil + "'";
+            string sql = " AlteraUsuario null,'"+usr.Id+"',"+usr.Perfil+",'" + usr.Nome + "','" + mail.Mail + "','" + usr.Perfil + "'";
             try
             {
                 SqlCommand cmd = new SqlCommand(sql, conn);
