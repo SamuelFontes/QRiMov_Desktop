@@ -19,24 +19,20 @@ namespace AmbienteTeste
 
         private void FluxoCaixa_Load(object sender, EventArgs e)
         {
-            /*// TODO: esta linha de código carrega dados na tabela 'viewFinancas.saldo_bancario'. Você pode movê-la ou removê-la conforme necessário.
             this.saldo_bancarioTableAdapter.Fill(this.viewFinancas.saldo_bancario);
+
             // TODO: esta linha de código carrega dados na tabela 'viewFinancas.saldo_bancario'. Você pode movê-la ou removê-la conforme necessário.
-            this.saldo_bancarioTableAdapter.Fill(this.viewFinancas.saldo_bancario);
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.FormBorderStyle = FormBorderStyle.None;*/
+            /*this.saldo_bancarioTableAdapter.Fill(this.viewFinancas.saldo_bancario);
+             // TODO: esta linha de código carrega dados na tabela 'viewFinancas.saldo_bancario'. Você pode movê-la ou removê-la conforme necessário.
+             this.saldo_bancarioTableAdapter.Fill(this.viewFinancas.saldo_bancario);
+             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+             this.FormBorderStyle = FormBorderStyle.None;
             var dt = new DataTable();
-            var ws = new TesteWS.WebService1SoapClient();
-            dt = ws.GetDataSet("select * from caracteristicas", "qrimov");
-            dataGridView1.DataSource = dt;
+             var ws = new TesteWS.WebService1SoapClient();
+             dt = ws.GetDataSet("select * from caracteristicas", "qrimov"); */
         }
 
-        private void vieworgBindingSource_CurrentChanged(object sender, EventArgs e)
-        {
 
-        }
-
-       
 
         private void txtBusca_KeyUp(object sender, KeyEventArgs e)
         {
@@ -73,6 +69,12 @@ namespace AmbienteTeste
         }
 
         private void txtBusca_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string result = "%" + txtBusca.Text + "%";
+            this.saldo_bancarioTableAdapter.BuscarParametro(this.viewFinancas.saldo_bancario, result);
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
         {
             string result = "%" + txtBusca.Text + "%";
             this.saldo_bancarioTableAdapter.BuscarParametro(this.viewFinancas.saldo_bancario, result);

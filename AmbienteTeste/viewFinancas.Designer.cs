@@ -283,13 +283,17 @@ namespace AmbienteTeste {
             
             private global::System.Data.DataColumn columnParte;
             
-            private global::System.Data.DataColumn columnValor;
-            
             private global::System.Data.DataColumn columnDescrição;
             
             private global::System.Data.DataColumn columnTipo;
             
             private global::System.Data.DataColumn columnData;
+            
+            private global::System.Data.DataColumn columnTipo_de_Movimento;
+            
+            private global::System.Data.DataColumn columnForma_de_Pagamento;
+            
+            private global::System.Data.DataColumn columnValor;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -342,14 +346,6 @@ namespace AmbienteTeste {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn ValorColumn {
-                get {
-                    return this.columnValor;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public global::System.Data.DataColumn DescriçãoColumn {
                 get {
                     return this.columnDescrição;
@@ -369,6 +365,30 @@ namespace AmbienteTeste {
             public global::System.Data.DataColumn DataColumn {
                 get {
                     return this.columnData;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn Tipo_de_MovimentoColumn {
+                get {
+                    return this.columnTipo_de_Movimento;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn Forma_de_PagamentoColumn {
+                get {
+                    return this.columnForma_de_Pagamento;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ValorColumn {
+                get {
+                    return this.columnValor;
                 }
             }
             
@@ -409,15 +429,17 @@ namespace AmbienteTeste {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public saldo_bancarioRow Addsaldo_bancarioRow(string Parte, string Valor, string Descrição, string Tipo, System.DateTime Data) {
+            public saldo_bancarioRow Addsaldo_bancarioRow(string Parte, string Descrição, string Tipo, System.DateTime Data, string Tipo_de_Movimento, string Forma_de_Pagamento, string Valor) {
                 saldo_bancarioRow rowsaldo_bancarioRow = ((saldo_bancarioRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Parte,
-                        Valor,
                         Descrição,
                         Tipo,
-                        Data};
+                        Data,
+                        Tipo_de_Movimento,
+                        Forma_de_Pagamento,
+                        Valor};
                 rowsaldo_bancarioRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowsaldo_bancarioRow);
                 return rowsaldo_bancarioRow;
@@ -449,10 +471,12 @@ namespace AmbienteTeste {
             internal void InitVars() {
                 this.columnID = base.Columns["ID"];
                 this.columnParte = base.Columns["Parte"];
-                this.columnValor = base.Columns["Valor"];
                 this.columnDescrição = base.Columns["Descrição"];
                 this.columnTipo = base.Columns["Tipo"];
                 this.columnData = base.Columns["Data"];
+                this.columnTipo_de_Movimento = base.Columns["Tipo de Movimento"];
+                this.columnForma_de_Pagamento = base.Columns["Forma de Pagamento"];
+                this.columnValor = base.Columns["Valor"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -462,14 +486,18 @@ namespace AmbienteTeste {
                 base.Columns.Add(this.columnID);
                 this.columnParte = new global::System.Data.DataColumn("Parte", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnParte);
-                this.columnValor = new global::System.Data.DataColumn("Valor", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnValor);
                 this.columnDescrição = new global::System.Data.DataColumn("Descrição", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDescrição);
                 this.columnTipo = new global::System.Data.DataColumn("Tipo", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTipo);
                 this.columnData = new global::System.Data.DataColumn("Data", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnData);
+                this.columnTipo_de_Movimento = new global::System.Data.DataColumn("Tipo de Movimento", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTipo_de_Movimento);
+                this.columnForma_de_Pagamento = new global::System.Data.DataColumn("Forma de Pagamento", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnForma_de_Pagamento);
+                this.columnValor = new global::System.Data.DataColumn("Valor", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnValor);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
                 this.columnID.AutoIncrement = true;
@@ -479,13 +507,17 @@ namespace AmbienteTeste {
                 this.columnID.ReadOnly = true;
                 this.columnID.Unique = true;
                 this.columnParte.MaxLength = 255;
-                this.columnValor.AllowDBNull = false;
-                this.columnValor.MaxLength = 100;
                 this.columnDescrição.AllowDBNull = false;
                 this.columnDescrição.MaxLength = 100;
                 this.columnTipo.AllowDBNull = false;
                 this.columnTipo.MaxLength = 10;
                 this.columnData.AllowDBNull = false;
+                this.columnTipo_de_Movimento.AllowDBNull = false;
+                this.columnTipo_de_Movimento.MaxLength = 100;
+                this.columnForma_de_Pagamento.AllowDBNull = false;
+                this.columnForma_de_Pagamento.MaxLength = 100;
+                this.columnValor.ReadOnly = true;
+                this.columnValor.MaxLength = 4000;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -655,17 +687,6 @@ namespace AmbienteTeste {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string Valor {
-                get {
-                    return ((string)(this[this.tablesaldo_bancario.ValorColumn]));
-                }
-                set {
-                    this[this.tablesaldo_bancario.ValorColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string Descrição {
                 get {
                     return ((string)(this[this.tablesaldo_bancario.DescriçãoColumn]));
@@ -699,6 +720,44 @@ namespace AmbienteTeste {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Tipo_de_Movimento {
+                get {
+                    return ((string)(this[this.tablesaldo_bancario.Tipo_de_MovimentoColumn]));
+                }
+                set {
+                    this[this.tablesaldo_bancario.Tipo_de_MovimentoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Forma_de_Pagamento {
+                get {
+                    return ((string)(this[this.tablesaldo_bancario.Forma_de_PagamentoColumn]));
+                }
+                set {
+                    this[this.tablesaldo_bancario.Forma_de_PagamentoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Valor {
+                get {
+                    try {
+                        return ((string)(this[this.tablesaldo_bancario.ValorColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'Valor\' na tabela \'saldo_bancario\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesaldo_bancario.ValorColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsParteNull() {
                 return this.IsNull(this.tablesaldo_bancario.ParteColumn);
             }
@@ -707,6 +766,18 @@ namespace AmbienteTeste {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetParteNull() {
                 this[this.tablesaldo_bancario.ParteColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsValorNull() {
+                return this.IsNull(this.tablesaldo_bancario.ValorColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetValorNull() {
+                this[this.tablesaldo_bancario.ValorColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -871,10 +942,13 @@ namespace AmbienteTeste.viewFinancasTableAdapters {
             tableMapping.DataSetTable = "saldo_bancario";
             tableMapping.ColumnMappings.Add("ID", "ID");
             tableMapping.ColumnMappings.Add("Empresa", "Parte");
-            tableMapping.ColumnMappings.Add("Valor", "Valor");
             tableMapping.ColumnMappings.Add("Descrição", "Descrição");
             tableMapping.ColumnMappings.Add("Tipo", "Tipo");
             tableMapping.ColumnMappings.Add("Data", "Data");
+            tableMapping.ColumnMappings.Add("Parte", "Parte");
+            tableMapping.ColumnMappings.Add("Tipo de Movimento", "Tipo de Movimento");
+            tableMapping.ColumnMappings.Add("Forma de Pagamento", "Forma de Pagamento");
+            tableMapping.ColumnMappings.Add("Valor", "Valor");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -891,23 +965,49 @@ namespace AmbienteTeste.viewFinancasTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT      f.INT_ID_FLUXO AS ID, o.str_fantasia_org AS Parte, f.STR_VALOR_FLUXO AS Valor, f.STR_DESCRICAO_FLUXO AS 'Descrição', 
-                        f.STR_TIPO_FLUXO AS Tipo, f.DT_DATA_FLUXO AS Data
-FROM          FLUXO_CAIXA AS f INNER JOIN
-                        ORGANIZACAO AS o ON f.INT_ID_ORG = o.int_id_org";
+            this._commandCollection[0].CommandText = @"SELECT      f.INT_ID_FLUXO AS ID,
+ o.str_fantasia_org AS Parte, 
+'R$ ' + replace(replace(replace(convert(nvarchar, f.STR_Valor_FLUXO, 1),'.', '|'), ',', '.'), '|', ',') AS Valor, 
+f.STR_DESCRICAO_FLUXO AS 'Descrição',
+ f.STR_MOVIMENTO_FLUXO as 'Tipo de Movimento',  
+
+ f.STR_PAGAMENTO_FLUXO as 'Forma de Pagamento',                       
+f.STR_TIPO_FLUXO AS Tipo,
+ f.DT_DATA_FLUXO AS Data
+
+FROM          FLUXO_CAIXA AS f
+ INNER JOIN
+                        
+ORGANIZACAO AS o
+ ON f.INT_ID_ORG = o.int_id_org";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = new global::System.Data.SqlClient.SqlConnection(global::AmbienteTeste.Properties.Settings.Default.qrimobConnectionString1);
-            this._commandCollection[1].CommandText = @"SELECT      f.INT_ID_FLUXO AS ID, o.str_fantasia_org AS Parte, f.STR_VALOR_FLUXO AS Valor, f.STR_DESCRICAO_FLUXO AS 'Descrição', 
-                        f.STR_TIPO_FLUXO AS Tipo, f.DT_DATA_FLUXO AS Data
-FROM          FLUXO_CAIXA AS f INNER JOIN
-                        ORGANIZACAO AS o ON f.INT_ID_ORG = o.int_id_org
+            this._commandCollection[1].CommandText = @"SELECT      f.INT_ID_FLUXO AS ID,
+ o.str_fantasia_org AS Parte, 
+'R$ ' + replace(replace(replace(convert(nvarchar, f.STR_Valor_FLUXO, 1),'.', '|'), ',', '.'), '|', ',') AS Valor, 
+f.STR_DESCRICAO_FLUXO AS 'Descrição',
+ f.STR_MOVIMENTO_FLUXO as 'Tipo de Movimento',  
+
+ f.STR_PAGAMENTO_FLUXO as 'Forma de Pagamento',                       
+f.STR_TIPO_FLUXO AS Tipo,
+ f.DT_DATA_FLUXO AS Data
+
+FROM          FLUXO_CAIXA AS f
+ INNER JOIN
+                        
+ORGANIZACAO AS o
+ ON f.INT_ID_ORG = o.int_id_org
+
 WHERE      (o.str_nome_org LIKE @parametro) OR
                         (f.INT_ID_FLUXO LIKE @parametro) OR
                         (f.STR_DESCRICAO_FLUXO LIKE @parametro) OR
-                        (f.STR_TIPO_FLUXO LIKE @parametro)";
+                        (f.STR_TIPO_FLUXO LIKE @parametro)
+OR
+                        ( f.STR_MOVIMENTO_FLUXO like @parametro) OR
+                        ( f.STR_PAGAMENTO_FLUXO LIKE @parametro)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@parametro", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "str_nome_org", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@parametro", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "STR_NOME_ORG", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

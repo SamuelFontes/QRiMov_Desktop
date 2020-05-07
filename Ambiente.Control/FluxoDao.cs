@@ -23,11 +23,11 @@ namespace Ambiente.Control
         public bool salvar(Fluxo f)
         {
             string sql = "";
-            sql = "INSERT INTO FLUXO_CAIXA VALUES (INT_ID_ORG, '"+f.Tipo
+            sql = "INSERT INTO FLUXO_CAIXA VALUES ("+f.Id_empresa.ToString() + ", '"+f.Tipo
                 + "', '" + f.Descricao
                 + "', " + f.Valor.ToString()
-                + ",'" + f.Data
-                + "', ''" + f.Movimento
+                + ",'" + f.Data.ToString("yyyy-MM-dd HH:mm:ss.fff")
+                + "', '" + f.Movimento
                 + "', '"+ f.Pagamento+"')";
            // string sql = "INSERT INTO FLUXO_CAIXA VALUES("+f.Id_empresa.ToString()+",'"+f.Tipo+
            //     "','"+f.Descricao+"','"+f.Valor.ToString()"','" + f.Data.ToString("yyyy/MM/dd HH:mm:ss")+"')";
@@ -44,6 +44,7 @@ namespace Ambiente.Control
             catch (Exception ex)
             {
                 Console.WriteLine("erro: " + ex.ToString());
+                MessageBox.Show("Erro ao inserir, favor verificar se os campos foram preenchidos corretamente.");
             }
             finally
             {
@@ -87,10 +88,10 @@ namespace Ambiente.Control
         public bool Alterar(Fluxo f)
         {
 
-            string sql = "UPDATE SET INT_ID_ORG = INT_ID_ORG STR_TIPO_FLUXO =  '" + f.Tipo
+            string sql = "UPDATE SET INT_ID_ORG = " + f.Id_empresa.ToString() + ", STR_TIPO_FLUXO =  '" + f.Tipo
                 + "' STR_DESCRICAO_FLUXO =  '" + f.Descricao
                 + "' STR_VALOR_FLUXO =  " + f.Valor.ToString()
-                + " DT_DATA_FLUXO = '" + f.Data
+                + " DT_DATA_FLUXO = '" + f.Data.ToString("yyyy-MM-dd HH:mm:ss.fff")
                 + "' STR_MOVIMENTO_FLUXO =  ''" + f.Movimento
                 + "' STR_PAGAMENTO_FLUXO =  '" + f.Pagamento + "' WHERE INT_ID_FLUXO = "+f.Id.ToString();
             Console.WriteLine(sql);

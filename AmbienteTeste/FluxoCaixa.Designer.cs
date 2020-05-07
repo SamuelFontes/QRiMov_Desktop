@@ -30,13 +30,22 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FluxoCaixa));
-            this.view_orgTableAdapter = new AmbienteTeste.viewImobiliariaTableAdapters.view_orgTableAdapter();
-            this.vieworgBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.viewFinancas = new AmbienteTeste.viewFinancas();
             this.viewFinancasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.iDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.parteDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valorDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descriçãoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipoDeMovimentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.formaDePagamentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.saldobancarioBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.viewFinancas = new AmbienteTeste.viewFinancas();
+            this.saldobancarioBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.saldobancarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsFechar = new System.Windows.Forms.ToolStripButton();
             this.btnAdicionar = new System.Windows.Forms.ToolStripButton();
@@ -45,25 +54,20 @@
             this.txtBusca = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.saldobancarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.saldo_bancarioTableAdapter = new AmbienteTeste.viewFinancasTableAdapters.saldo_bancarioTableAdapter();
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.parteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descriçãoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tipoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.vieworgBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.viewFinancas)).BeginInit();
+            this.descriçãoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.viewFinancasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.saldobancarioBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.viewFinancas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.saldobancarioBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saldobancarioBindingSource)).BeginInit();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // view_orgTableAdapter
-            // 
-            this.view_orgTableAdapter.ClearBeforeFill = true;
             // 
             // dataGridViewImageColumn2
             // 
@@ -84,16 +88,6 @@
             this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn1.Width = 50;
             // 
-            // viewFinancas
-            // 
-            this.viewFinancas.DataSetName = "viewFinancas";
-            this.viewFinancas.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // viewFinancasBindingSource
-            // 
-            this.viewFinancasBindingSource.DataSource = this.viewFinancas;
-            this.viewFinancasBindingSource.Position = 0;
-            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
@@ -104,13 +98,15 @@
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.iDDataGridViewTextBoxColumn,
-            this.parteDataGridViewTextBoxColumn,
-            this.valorDataGridViewTextBoxColumn,
-            this.descriçãoDataGridViewTextBoxColumn,
-            this.tipoDataGridViewTextBoxColumn,
-            this.dataDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.saldobancarioBindingSource;
+            this.iDDataGridViewTextBoxColumn1,
+            this.parteDataGridViewTextBoxColumn1,
+            this.valorDataGridViewTextBoxColumn1,
+            this.descriçãoDataGridViewTextBoxColumn1,
+            this.tipoDataGridViewTextBoxColumn1,
+            this.dataDataGridViewTextBoxColumn,
+            this.tipoDeMovimentoDataGridViewTextBoxColumn,
+            this.formaDePagamentoDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.saldobancarioBindingSource2;
             this.dataGridView1.Location = new System.Drawing.Point(0, 53);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(50);
             this.dataGridView1.Name = "dataGridView1";
@@ -118,6 +114,76 @@
             this.dataGridView1.Size = new System.Drawing.Size(800, 450);
             this.dataGridView1.TabIndex = 162;
             this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
+            // 
+            // iDDataGridViewTextBoxColumn1
+            // 
+            this.iDDataGridViewTextBoxColumn1.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn1.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn1.Name = "iDDataGridViewTextBoxColumn1";
+            this.iDDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // parteDataGridViewTextBoxColumn1
+            // 
+            this.parteDataGridViewTextBoxColumn1.DataPropertyName = "Parte";
+            this.parteDataGridViewTextBoxColumn1.HeaderText = "Parte";
+            this.parteDataGridViewTextBoxColumn1.Name = "parteDataGridViewTextBoxColumn1";
+            this.parteDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // valorDataGridViewTextBoxColumn1
+            // 
+            this.valorDataGridViewTextBoxColumn1.DataPropertyName = "Valor";
+            this.valorDataGridViewTextBoxColumn1.HeaderText = "Valor";
+            this.valorDataGridViewTextBoxColumn1.Name = "valorDataGridViewTextBoxColumn1";
+            this.valorDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // descriçãoDataGridViewTextBoxColumn1
+            // 
+            this.descriçãoDataGridViewTextBoxColumn1.DataPropertyName = "Descrição";
+            this.descriçãoDataGridViewTextBoxColumn1.HeaderText = "Descrição";
+            this.descriçãoDataGridViewTextBoxColumn1.Name = "descriçãoDataGridViewTextBoxColumn1";
+            this.descriçãoDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // tipoDataGridViewTextBoxColumn1
+            // 
+            this.tipoDataGridViewTextBoxColumn1.DataPropertyName = "Tipo";
+            this.tipoDataGridViewTextBoxColumn1.HeaderText = "Tipo";
+            this.tipoDataGridViewTextBoxColumn1.Name = "tipoDataGridViewTextBoxColumn1";
+            this.tipoDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataDataGridViewTextBoxColumn
+            // 
+            this.dataDataGridViewTextBoxColumn.DataPropertyName = "Data";
+            this.dataDataGridViewTextBoxColumn.HeaderText = "Data";
+            this.dataDataGridViewTextBoxColumn.Name = "dataDataGridViewTextBoxColumn";
+            this.dataDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // tipoDeMovimentoDataGridViewTextBoxColumn
+            // 
+            this.tipoDeMovimentoDataGridViewTextBoxColumn.DataPropertyName = "Tipo de Movimento";
+            this.tipoDeMovimentoDataGridViewTextBoxColumn.HeaderText = "Tipo de Movimento";
+            this.tipoDeMovimentoDataGridViewTextBoxColumn.Name = "tipoDeMovimentoDataGridViewTextBoxColumn";
+            this.tipoDeMovimentoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // formaDePagamentoDataGridViewTextBoxColumn
+            // 
+            this.formaDePagamentoDataGridViewTextBoxColumn.DataPropertyName = "Forma de Pagamento";
+            this.formaDePagamentoDataGridViewTextBoxColumn.HeaderText = "Forma de Pagamento";
+            this.formaDePagamentoDataGridViewTextBoxColumn.Name = "formaDePagamentoDataGridViewTextBoxColumn";
+            this.formaDePagamentoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // saldobancarioBindingSource2
+            // 
+            this.saldobancarioBindingSource2.DataMember = "saldo_bancario";
+            this.saldobancarioBindingSource2.DataSource = this.viewFinancas;
+            // 
+            // viewFinancas
+            // 
+            this.viewFinancas.DataSetName = "viewFinancas";
+            this.viewFinancas.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // saldobancarioBindingSource1
+            // 
+            this.saldobancarioBindingSource1.DataSource = this.viewFinancasBindingSource;
             // 
             // toolStrip1
             // 
@@ -195,11 +261,7 @@
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(23, 25);
             this.toolStripButton1.Text = "toolStripButton1";
-            // 
-            // saldobancarioBindingSource
-            // 
-            this.saldobancarioBindingSource.DataMember = "saldo_bancario";
-            this.saldobancarioBindingSource.DataSource = this.viewFinancas;
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // saldo_bancarioTableAdapter
             // 
@@ -210,42 +272,30 @@
             this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
             this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
             this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
-            this.iDDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // parteDataGridViewTextBoxColumn
             // 
             this.parteDataGridViewTextBoxColumn.DataPropertyName = "Parte";
             this.parteDataGridViewTextBoxColumn.HeaderText = "Parte";
             this.parteDataGridViewTextBoxColumn.Name = "parteDataGridViewTextBoxColumn";
-            this.parteDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // valorDataGridViewTextBoxColumn
             // 
             this.valorDataGridViewTextBoxColumn.DataPropertyName = "Valor";
             this.valorDataGridViewTextBoxColumn.HeaderText = "Valor";
             this.valorDataGridViewTextBoxColumn.Name = "valorDataGridViewTextBoxColumn";
-            this.valorDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // descriçãoDataGridViewTextBoxColumn
-            // 
-            this.descriçãoDataGridViewTextBoxColumn.DataPropertyName = "Descrição";
-            this.descriçãoDataGridViewTextBoxColumn.HeaderText = "Descrição";
-            this.descriçãoDataGridViewTextBoxColumn.Name = "descriçãoDataGridViewTextBoxColumn";
-            this.descriçãoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // tipoDataGridViewTextBoxColumn
             // 
             this.tipoDataGridViewTextBoxColumn.DataPropertyName = "Tipo";
             this.tipoDataGridViewTextBoxColumn.HeaderText = "Tipo";
             this.tipoDataGridViewTextBoxColumn.Name = "tipoDataGridViewTextBoxColumn";
-            this.tipoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // dataDataGridViewTextBoxColumn
+            // descriçãoDataGridViewTextBoxColumn
             // 
-            this.dataDataGridViewTextBoxColumn.DataPropertyName = "Data";
-            this.dataDataGridViewTextBoxColumn.HeaderText = "Data";
-            this.dataDataGridViewTextBoxColumn.Name = "dataDataGridViewTextBoxColumn";
-            this.dataDataGridViewTextBoxColumn.ReadOnly = true;
+            this.descriçãoDataGridViewTextBoxColumn.DataPropertyName = "Descrição";
+            this.descriçãoDataGridViewTextBoxColumn.HeaderText = "Observação";
+            this.descriçãoDataGridViewTextBoxColumn.Name = "descriçãoDataGridViewTextBoxColumn";
             // 
             // FluxoCaixa
             // 
@@ -261,26 +311,23 @@
             this.Text = "FluxoCaixa";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FluxoCaixa_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.vieworgBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.viewFinancas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.viewFinancasBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.saldobancarioBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.viewFinancas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.saldobancarioBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.saldobancarioBindingSource)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.saldobancarioBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private viewImobiliariaTableAdapters.view_orgTableAdapter view_orgTableAdapter;
-        private System.Windows.Forms.BindingSource vieworgBindingSource;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.BindingSource viewFinancasBindingSource;
-        private viewFinancas viewFinancas;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn empresaDataGridViewTextBoxColumn;
         private System.Windows.Forms.ToolStrip toolStrip1;
@@ -293,11 +340,21 @@
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.BindingSource saldobancarioBindingSource;
         private viewFinancasTableAdapters.saldo_bancarioTableAdapter saldo_bancarioTableAdapter;
+        private System.Windows.Forms.BindingSource saldobancarioBindingSource1;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn parteDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn valorDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descriçãoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tipoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descriçãoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn parteDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valorDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descriçãoDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tipoDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tipoDeMovimentoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn formaDePagamentoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource saldobancarioBindingSource2;
+        private viewFinancas viewFinancas;
     }
 }

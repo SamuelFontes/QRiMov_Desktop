@@ -10,7 +10,7 @@ namespace Ambiente.Entidade
     {
         int id;
         int id_empresa;
-        double valor;
+        string valor;
         string descricao;
         string tipo;
         string movimento;
@@ -18,7 +18,7 @@ namespace Ambiente.Entidade
         DateTime data;
 
         public int Id { get => id; set => id = value; }
-        public double Valor { get => valor; set => valor = value; }
+        public string Valor { get => valor; set => valor = value; }
         public string Descricao { get => descricao; set => descricao = value; }
         public string Tipo { get => tipo; set => tipo = value; }
         public DateTime Data { get => data; set => data = value; }
