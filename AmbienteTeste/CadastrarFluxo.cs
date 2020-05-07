@@ -24,8 +24,7 @@ namespace AmbienteTeste
         private void CadastrarFluxo_Load(object sender, EventArgs e)
         {
             // TODO: esta linha de código carrega dados na tabela 'viewEmpresas.Empresas'. Você pode movê-la ou removê-la conforme necessário.
-
-            cbTipo_SelectedIndexChanged(sender,e);
+            
         }
 
         private void tsFechar_Click(object sender, EventArgs e)

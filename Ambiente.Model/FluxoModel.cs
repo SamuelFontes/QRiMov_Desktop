@@ -50,14 +50,17 @@ namespace Ambiente.Model
         {
             FluxoDao login = new FluxoDao();
 
-            string aviso = null;
-            if (login.Alterar(f))
+            string aviso = verificar(f);
+            if (aviso == "")
             {
-                aviso = "Alterado com sucesso!";
-            }
-            else
-            {
-                aviso = "Não foi possivel alterar!";
+                if (login.Alterar(f))
+                {
+                    aviso = "Alterado com sucesso!";
+                }
+                else
+                {
+                    aviso = "Não foi possivel alterar!";
+                }
             }
             return aviso;
         }

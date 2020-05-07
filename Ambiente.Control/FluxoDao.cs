@@ -88,12 +88,12 @@ namespace Ambiente.Control
         public bool Alterar(Fluxo f)
         {
 
-            string sql = "UPDATE SET INT_ID_ORG = " + f.Id_empresa.ToString() + ", STR_TIPO_FLUXO =  '" + f.Tipo
-                + "' STR_DESCRICAO_FLUXO =  '" + f.Descricao
-                + "' STR_VALOR_FLUXO =  " + f.Valor.ToString()
-                + " DT_DATA_FLUXO = '" + f.Data.ToString("yyyy-MM-dd HH:mm:ss.fff")
-                + "' STR_MOVIMENTO_FLUXO =  ''" + f.Movimento
-                + "' STR_PAGAMENTO_FLUXO =  '" + f.Pagamento + "' WHERE INT_ID_FLUXO = "+f.Id.ToString();
+            string sql = "UPDATE FLUXO_CAIXA SET INT_ID_ORG = " + f.Id_empresa.ToString() + ", STR_TIPO_FLUXO =  '" + f.Tipo
+                + "', STR_DESCRICAO_FLUXO =  '" + f.Descricao
+                + "', STR_VALOR_FLUXO =  " + f.Valor.ToString()
+                + ", DT_DATA_FLUXO = '" + f.Data.ToString("yyyy-MM-dd HH:mm:ss.fff")
+                + "', STR_MOVIMENTO_FLUXO =  '" + f.Movimento
+                + "', STR_PAGAMENTO_FLUXO =  '" + f.Pagamento + "' WHERE INT_ID_FLUXO = "+f.Id.ToString();
             Console.WriteLine(sql);
             try
             {
