@@ -60,6 +60,9 @@
             this.valorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tipoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descriçãoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.lbSaldo = new System.Windows.Forms.ToolStripLabel();
             ((System.ComponentModel.ISupportInitialize)(this.viewFinancasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saldobancarioBindingSource2)).BeginInit();
@@ -195,7 +198,10 @@
             this.toolStripLabel1,
             this.txtBusca,
             this.toolStripSeparator2,
-            this.toolStripButton1});
+            this.toolStripButton1,
+            this.toolStripSeparator3,
+            this.toolStripLabel2,
+            this.lbSaldo});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(0, 25, 0, 0);
@@ -297,6 +303,25 @@
             this.descriçãoDataGridViewTextBoxColumn.HeaderText = "Observação";
             this.descriçãoDataGridViewTextBoxColumn.Name = "descriçãoDataGridViewTextBoxColumn";
             // 
+            // toolStripLabel2
+            // 
+            this.toolStripLabel2.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.toolStripLabel2.Name = "toolStripLabel2";
+            this.toolStripLabel2.Size = new System.Drawing.Size(74, 25);
+            this.toolStripLabel2.Text = "SALDO:";
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 28);
+            // 
+            // lbSaldo
+            // 
+            this.lbSaldo.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSaldo.Name = "lbSaldo";
+            this.lbSaldo.Size = new System.Drawing.Size(34, 25);
+            this.lbSaldo.Text = "00";
+            // 
             // FluxoCaixa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -356,5 +381,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn formaDePagamentoDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource saldobancarioBindingSource2;
         private viewFinancas viewFinancas;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel2;
+        private System.Windows.Forms.ToolStripLabel lbSaldo;
     }
 }
